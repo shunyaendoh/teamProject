@@ -1,7 +1,7 @@
 # TeamProject
 
 ## INTRODUCTION
-1. ダウンロード
+1. クローン
 2. プロジェクトをvscodeで開く
 3. `composer install`
 4. `cp .env.example .env`
