@@ -4,7 +4,8 @@
 1. ダウンロード
 2. プロジェクトをvscodeで開く
 3. `composer install`
-4. `php artisan key:generate`
-5. `php artisan serve`
-6. localhost:8000 にアクセス
-7. Laravelのホームページが写ればok
+4. `cp .env.example .env`
+5. `php artisan key:generate`
+6. `php artisan serve`
+7. localhost:8000 にアクセス
+8. Laravelのホームページが写ればok
