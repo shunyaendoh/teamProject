@@ -32,11 +32,12 @@
             </ul>
         </div>
     {{-- jqueryの呼び出し --}}
-    <script src="/js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     {{-- jquery-uiの呼び出し --}}
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     {{-- photopileの呼び出し --}}
     <script src="/js/photopile.js"></script>
+    <script src="/js/app.js"></script>
     </div>
 </body>
 </html>
