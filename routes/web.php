@@ -1,5 +1,7 @@
 <?php
 
+//このコントローラーのこのメソッド使いますよっていうやつ
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'ProfileController@index')->name('profile.index');
+
+Route::get('/profile/create', 'ProfileController@create')->name('profile.create');
+
+Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
+
+
+Route::get('/idea', 'IdeaController@index')->name('idea.index');
+
+Route::get('/idea/create', 'IdeaController@create')->name('idea.create');
+
+
+
