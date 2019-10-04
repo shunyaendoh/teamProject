@@ -18,4 +18,5 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts(['resources/assets/js/jquery-ui.js'], 'public/js/jquery-ui.js')
     .copy(['node_modules/jquery-ui/themes/base/all.css'], 'public/css/jquery-ui.css')
     .copy(['resources/assets/css/photopile.css'], 'public/css/photopile.css')
-    .copy(['resources/assets/css/index.css'], 'public/css/index.css');
+    .copy(['resources/assets/css/index.css'], 'public/css/index.css')
+    .scripts(['resources/assets/js/jqfloat.js'], 'public/js/jqfloat.js');

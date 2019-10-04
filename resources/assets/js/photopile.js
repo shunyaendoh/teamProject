@@ -54,7 +54,7 @@ var photopile = (function () {
         photo.init();
 
         // once gallery has loaded completely
-        $(window).load(function () {
+        $(window).on('load', function () {
             $('.js div.photopile-wrapper').css({ // style container
                 'padding': thumbOverlap + 'px',
                 'background-image': 'none'
