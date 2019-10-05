@@ -29,19 +29,21 @@ class ProfileController extends Controller
 
 
     //新規登録のデータ保存
-    //public function store(フォームリクエストわからん)
-    // {
-        // $profile = new Profile();
-        // $profile->nickname = $request->nickneme;
-        // $profile->age = $request->age;
-        // $profile->job = $request->job;
-        // $profile->skills = $request->skills;
-        // $profile->locate = $request->locate;
-        // $profile->comment = $request->comment;
-        // $profile->gender = $request->gender;
-        // $profile->save();
-        // return redirect()->route('profile.index');
-    // }
+    public function store(Request $request)
+     {
+        $profile = new Profile();
+
+         $profile->nickname = $request->nickneme;
+         $profile->age = $request->age;
+         $profile->job = $request->job;
+         $profile->skills = $request->skills;
+         $profile->locate = $request->locate;
+         $profile->comment = $request->comment;
+         $profile->gender = $request->gender;
+         $profile->save();
+         return redirect()->route('profiles.index');
+     }
+          
     
 
     //プロフィール編集
@@ -50,7 +52,7 @@ class ProfileController extends Controller
         return view('profiles.edit');
     }
 
-    public function update()
+    public function update(int $id)
     {
         $profile = Profile::find($id);
         $profile->nickname = $request->nickneme;
