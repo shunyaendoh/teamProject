@@ -17,6 +17,9 @@ class AddColumnToUsersTable extends Migration
             $table->unsignedTinyInteger('role')
                 ->after('password')
                 ->default(0);
+            $table->unsignedInteger('job_id')
+                ->after('role');
+            $table->foreign('job_id')->references('id')->on('jobs');
         });
     }
 
