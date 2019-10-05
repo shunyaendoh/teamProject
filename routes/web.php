@@ -13,17 +13,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{user}', 'ProfileController@index')->name('profile.index');
 
     // プロフィール編集ページ
-    Route::get('/profile/edit/{user_id}', 'ProfileController@edit')->name('profile.edit');
-    Route::put('/profile/update/{user_id}', 'ProfileController@update')->name('profile.update');
+    Route::get('/profile/edit/{user}', 'ProfileController@edit')->name('profile.edit');
+    Route::put('/profile/update/{user}', 'ProfileController@update')->name('profile.update');
 
     // アイデア編集ページ
     Route::get('/profile/edit/{idea}', 'IdeaController@edit')->name('idea.edit');
     Route::put('/profile/update/{idea}', 'IdeaController@update')->name('idea.update');
 
     // チャットページ
-    ROUTE::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');
-    ROUTE::post('/chat/{user_id}/{chat}', 'ChatController@create')->name('chat.create');
-    ROUTE::delete('/chat/{user_id}/{chat}', 'ChatController@delete')->name('chat.delete');
+    ROUTE::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');              // 送信先のuser_id
+    ROUTE::post('/chat/{user}/{chat}', 'ChatController@create')->name('chat.create');
+    ROUTE::delete('/chat/{user}/{chat}', 'ChatController@delete')->name('chat.delete');
 
     // ABOUT USページ
     ROUTE::get('/about_us', function () {
@@ -34,6 +34,5 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 // テスト用
-Route::get('/main', function () {
-    view('app.index');
-});
+
+Route::view('/main', 'app.index');
