@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="register">
                         @csrf
 
                         <div class="form-group row">
@@ -58,6 +58,27 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="form-group row">
+                            <label for="job_id" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="job_id" type="number" class="form-control" name="job_id" required>
+                            </div>
+                        </div> -->
+
+                        <!-- ここにjob_idを入れる -->
+                        <div class="form-group row">
+                            <label for="job_id" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
+                            <div class="col-md-6">
+                                <select name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="register" required>
+                                @foreach ($jobs as $job)
+                                <option value=" {{ $job->id }} ">{{ $job->name }}</option>
+                                @endforeach
+                                </select>
                             </div>
                         </div>
 
