@@ -22,7 +22,7 @@ class CreateChatsTable extends Migration
             $table->unsignedBigInteger('idea_id');
             $table->foreign('idea_id')->references('id')->on('ideas');
             $table->string('body');
-            $table->unsignedTinyInteger('read_status');
+            $table->unsignedTinyInteger('read_status')->default(0);
             $table->timestamps();
         });
     }

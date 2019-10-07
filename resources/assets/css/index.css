@@ -1,0 +1,14 @@
+#content {
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 160px;
+    padding-bottom: 180px;
+}
+
+#content:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}

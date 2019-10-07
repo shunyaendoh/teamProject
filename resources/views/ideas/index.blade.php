@@ -1,4 +1,8 @@
 @extends('layouts.app')
+
+<!-- ヘッダーのlaravelという文字を変えられない！ -->
+
+
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>idea</title>
 </head> -->
+
 <body>
     アイデア
-</body>
+
+  
+ </body>
+   
+
 </html>
