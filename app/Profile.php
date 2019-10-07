@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+<<<<<<< HEAD
     //Determine if the user is authorized to make this request.
 
 
@@ -13,4 +14,10 @@ class Profile extends Model
 
 
     //Get the validation rules that apply to the request.
+=======
+    public function user()
+    {
+        return $this->hasOne('App\User');
+    }
+>>>>>>> master
 }
