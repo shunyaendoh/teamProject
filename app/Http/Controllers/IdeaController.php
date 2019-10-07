@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Idea;
+use Carbon\Carbon;
 
 class IdeaController extends Controller
 {
@@ -23,16 +24,16 @@ class IdeaController extends Controller
     }
 
     //アイデア投稿データを保存
-    public function store()
+    public function store(Request $request)
     {
         //Ideaモデルのインスタンスを取得
-        $idea = new Idea();//フォームリクエストがわからない
-
-        //QQQQQQQQQQQユーザーidは？QQQQQQQQQQQQQQQQQQQQQQQQ
+        $idea = new Idea();
+        
+        
         $idea->title = $request->title;
         $idea->body = $request->body;
-        $idea->created_at = $request->created_at;
-        $idea->updated_at= $request->updated_at;
+        $idea->created_at = Carbon::now();
+        $idea->updated_at= Carbon::now();
 
         $idea->save();
 
@@ -44,19 +45,19 @@ class IdeaController extends Controller
     //アイデア編集
     public function edit()
     {
-        //QQQQQQQ編集したいアイデアをidを使って持ってこないのかQQQQQQQQQQQQQQQ
+       
         return view('ideas.edit');
 
     }
 
-    public function update()//フォームリクエストがわからない
+    public function update(int $id)
     {
+        $idea = Idea::find($id);
         $idea->title = $request->title;
         $idea->body = $request->body;
-        $idea->created_at = $request->created_at;
-        $idea->updated_at= $request->updated_at;
+        $idea->created_at = Carbon::now();
+        $idea->updated_at= Carbon::now();
 
         return redirect()->route('ideas.index');
     }
-
 }
