@@ -28,8 +28,10 @@ class IdeaController extends Controller
     {
         //Ideaモデルのインスタンスを取得
         $idea = new Idea();
+       
         
-        
+        $idea->user_id = 1;
+        $idea->job_id = 2;
         $idea->title = $request->title;
         $idea->body = $request->body;
         $idea->created_at = Carbon::now();
@@ -38,7 +40,7 @@ class IdeaController extends Controller
         $idea->save();
 
         //画面更新
-        return redirect()->route('ideas.index');
+        return redirect()->route('idea.index');
     }
 
 

@@ -9,10 +9,13 @@
 <body>
 
 
-<h1 class="lead-form">Share your idea!</h1>
+<h1>Share your idea!</h1>
 
-<form action="http://127.0.0.1:8000/idea/index" method="POST">
-  
+<form action="{{ route('idea.store') }}" method="POST" name="idea_post">
+
+  <!-- セキュリティのために必要 -->
+ @csrf
+ 
   <div>
     <label for="title">タイトル：</label>
     <input id="title" type="title" name="title" placeholder="アイデアのタイトル">
@@ -20,8 +23,8 @@
   
   
   <div>
-    <label for="idea">アイデア：</label>
-    <textarea  id="idea" placeholder="アイデアの詳細"></textarea>
+    <label for="body">アイデア：</label>
+    <textarea  id="body" name="body" placeholder="アイデアの詳細"></textarea>
   </div>
 
   <div>
