@@ -33,7 +33,7 @@ class ProfileController extends Controller
      {
         $profile = new Profile();
 
-         $profile->nickname = $request->nickneme;
+         $profile->nickname = $request->nickname;
          $profile->age = $request->age;
          $profile->job = $request->job;
          $profile->skills = $request->skills;
