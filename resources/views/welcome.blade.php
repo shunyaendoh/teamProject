@@ -76,19 +76,20 @@
                     @endauth
                 </div>
             @endif
-
+<h1></h1>
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    shimada
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laravel.com/docs">sodium_crypto_aead_aes256gcm_decrypt</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/laravel/laravel">ikeda
+                    </a>
                 </div>
             </div>
         </div>
