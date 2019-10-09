@@ -1,4 +1,4 @@
-@extends('layouts.about-layout')
+@extends('layouts.app')
 
 @section('content')
 <div align="center" class="p-3 mb-2 bg-primary text-white h1">About us</div>
