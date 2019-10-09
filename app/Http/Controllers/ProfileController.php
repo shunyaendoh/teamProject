@@ -59,10 +59,10 @@ class ProfileController extends Controller
         return view('profiles.edit');
     }
 
-    public function update(int $id)
+    public function update(Request $request)
     {
-        $profile = Profile::find($id);
-        $profile->nickname = $request->nickneme;
+        $profile = Profile::find(Auth::user()->id);
+        $profile->nickname = $request->nickname;
         $profile->age = $request->age;
         $profile->job = $request->job;
         $profile->skills = $request->skills;
