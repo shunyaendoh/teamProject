@@ -77,7 +77,7 @@ class RegisterController extends Controller
 
         // dd($newUser->id);
 
-        $newProfile =  Profile::create([
+        Profile::create([
             'user_id' => $newUser->id,
             'nickname' => $data['nickname'],
             'age' => 0,
@@ -85,9 +85,10 @@ class RegisterController extends Controller
             'locate' => '',
             'comment' => '',
             'gender' => 0,
+            'picture_path' => '',
         ]);
 
-        return [$newUser, $newProfile];
+        return $newUser;
 
         // return [
         //     User::create([
