@@ -25,6 +25,7 @@ class ProfilesTableSeeder extends Seeder
             'locate' => '千葉',
             'comment' => 'Java少し齧ってました！',
             'gender' => 1,
+            'picture_path' => 'storage/images/profilePicture/IMG_0024.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -36,6 +37,7 @@ class ProfilesTableSeeder extends Seeder
             'locate' => '千葉',
             'comment' => 'デング熱によくかかります！',
             'gender' => 1,
+            'picture_path' => 'storage/images/profilePicture/IMG_0024.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
