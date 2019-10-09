@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/idea/update/{idea}', 'IdeaController@update')->name('idea.update');
 
     // チャットページ
-    ROUTE::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');
+    ROUTE::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');              // 送信先のuser_id
     ROUTE::post('/chat/{user}/{chat}', 'ChatController@create')->name('chat.create');
     ROUTE::delete('/chat/{user}/{chat}', 'ChatController@delete')->name('chat.delete');
 
@@ -37,20 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 Auth::routes();
 
+// テスト用
 
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/profile', 'ProfileController@index')->name('profile.index');
-
-// Route::get('/profile/create', 'ProfileController@create')->name('profile.create');
-
-// Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
-
-
-// Route::get('/idea', 'IdeaController@index')->name('idea.index');
-
-// Route::get('/idea/create', 'IdeaController@create')->name('idea.create');
-
-
-
+Route::view('/main', 'app.index');
