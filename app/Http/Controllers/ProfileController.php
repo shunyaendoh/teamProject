@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 //ModelであるProfile.phpとこのControllerをつなぐ。use namespace名\Model名;
 use App\Profile;
+//認証機能
+use \Auth;
 
 class ProfileController extends Controller
 {
@@ -14,9 +16,14 @@ class ProfileController extends Controller
     public function index()
     {   
         //緑の文字のProfileはModel名
-        $profiles = Profile::all();
+        // Auth::user()->profile;
+        // $profile = Profile::where('user_id', $id)->first(); 
+        // User::where('id', $id)->with('profile')->first();
+        $profile = Profile::where('user_id', Auth::user()->id)->first();
         //viewsのprofilesのindex.blade.phpに表示するように指示。（'フォルダ名.ファイル名'）
-        return view('profiles.index');
+        return view('profiles.profile', [
+            'profile' => $profile,
+        ]);
     }
 
 
@@ -52,10 +59,10 @@ class ProfileController extends Controller
         return view('profiles.edit');
     }
 
-    public function update(int $id)
+    public function update(Request $request)
     {
-        $profile = Profile::find($id);
-        $profile->nickname = $request->nickneme;
+        $profile = Profile::find(Auth::user()->id);
+        $profile->nickname = $request->nickname;
         $profile->age = $request->age;
         $profile->job = $request->job;
         $profile->skills = $request->skills;
