@@ -16,19 +16,21 @@
 
   <!-- セキュリティのために必要 -->
  @csrf
+
+ <link rel="stylesheet" href="{{ asset('css/create.css') }}">
  
   <div>
     <label for="title">タイトル：</label>
-    <input id="title" type="title" name="title" placeholder="アイデアのタイトル">
+    <input class="title" id="title" type="title" name="title" placeholder="アイデアのタイトル">
   </div>
   
   
-  <div class="form-group row">
+  <div>
     <label for="job_id" class="col-md-4 col-form-label text-md-right">{{ __('対象の職業：') }}</label>
     <div class="col-md-6">
         <select name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="post_idea" required>
        
-        <option value="who">{{'--未選択--'}}</option>
+        <option class="select_box" value="who">{{'--未選択--'}}</option>
         @foreach ($jobs as $job)
         <option value=" {{ $job->id }} ">{{ $job->name }}</option>
         @endforeach
@@ -37,8 +39,8 @@
   </div>
 
 
-    <label for="body">アイデア：</label>
-    <textarea  id="body" name="body" placeholder="アイデアの詳細"></textarea>
+    <label class="body_title" for="body">アイデア：</label>
+    <textarea class="body" id="body" name="body" placeholder="アイデアの詳細"></textarea>
   </div>
 
   <div>
@@ -52,7 +54,7 @@
 
 
 
-</form>
+
 
 
 
