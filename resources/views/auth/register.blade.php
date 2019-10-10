@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Nickname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nickname" type="text" class="form-control{{ $errors->has('nickname') ? ' is-invalid' : '' }}" name="nickname" value="{{ old('nickname') }}" required >
+
+                                @if ($errors->has('nickname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('nickname') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -60,15 +74,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
-
-                        <!-- <div class="form-group row">
-                            <label for="job_id" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="job_id" type="number" class="form-control" name="job_id" required>
-                            </div>
-                        </div> -->
 
                         <!-- ここにjob_idを入れる -->
                         <div class="form-group row">
