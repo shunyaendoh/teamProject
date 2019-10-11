@@ -53,11 +53,15 @@ class IdeaController extends Controller
 
 
     //アイデア編集
-    public function edit()
+    public function edit(Idea $idea)
     {
-       
-        return view('ideas.edit');
+       $jobs = Job::all();
 
+        return view('ideas.edit',[
+            'jobs' => $jobs
+        ]);
+        
+        
     }
 
     public function update(int $id)

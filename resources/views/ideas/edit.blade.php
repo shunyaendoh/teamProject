@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>アイデア投稿画面</title>
+    <title>アイデア編集画面</title>
 </head>
 <body>
 
 
 <h1>Share your idea!</h1>
 
-<form action="{{ route('idea.store') }}" method="POST" name="idea_post" id="post_idea">
+
+
+<form action="{{ route('idea.update') }}" method="PUT" name="idea_post" id="post_idea">
   <!-- formにidをつけてあげて、selectタグとつなげる時にform=で同じやつを書いて、繋げてあげる -->
 
   <!-- セキュリティのために必要 -->
@@ -44,7 +46,7 @@
   </div>
 
   <div>
-    <input type="submit" value="投稿">
+    <input type="submit" value="更新">
     <!-- <input type="reset" value="リセット"> -->
   </div>
 
