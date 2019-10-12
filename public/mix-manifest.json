@@ -7,5 +7,6 @@
     "/css/jquery-ui.css": "/css/jquery-ui.css",
     "/css/photopile.css": "/css/photopile.css",
     "/css/index.css": "/css/index.css",
-    "/js/jqfloat.js": "/js/jqfloat.js"
+    "/js/jqfloat.js": "/js/jqfloat.js",
+    "/js/main.js": "/js/main.js"
 }
