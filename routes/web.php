@@ -9,6 +9,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/idea/create', 'IdeaController@create')->name('idea.create');
     Route::post('/idea/create', 'IdeaController@store')->name('idea.store');
 
+    // お気に入りページ
+    Route::post('/idea/like/{idea}', 'FavoriteController@like');
+    Route::post('/idea/dislike/{idea}', 'FavoriteController@dislike');
+
     // プロフィール投稿ページ
     Route::get('/profile/create/{user}', 'ProfileController@create')->name('profile.create');
     Route::post('/profile/create/{user}', 'ProfileController@store')->name('profile.store');

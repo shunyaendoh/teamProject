@@ -10,4 +10,8 @@ class Idea extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Favorite')->withTimestamps();
+    }
 }
