@@ -14,8 +14,64 @@ class IdeaController extends Controller
     //アイデア投稿画面表示
     public function index()
     {
-        $ideas = Idea::all();
-        return view('ideas.index');
+        // dd($latestIdea->id);
+        $ideas = Idea::with('user.profile')
+            ->inRandomOrder()
+            ->limit(30)
+            ->get();
+
+        $colorName = [
+            [
+                'bg'=> 'bg-primary',
+                'text'=> 'text-light',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-secondary',
+                'text'=> 'text-light',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-success',
+                'text'=> 'text-light',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-danger',
+                'text'=> 'text-light',
+                'heart'=> 'color:yellow;'
+            ],
+            [
+                'bg'=> 'bg-warning',
+                'text'=> 'text-dark',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-info',
+                'text'=> 'text-light',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-light',
+                'text'=> 'text-dark',
+                'heart'=> 'color:red;'
+            ],
+            [
+                'bg'=> 'bg-dark',
+                'text'=> 'text-light',
+                'heart'=> 'color:red;'
+            ],
+        ];
+
+        $ideas->map(function($idea) use($colorName) {
+            $idea->color_name = $colorName[$idea->job_id - 1];
+        });
+
+        // dd($ideas);
+
+        return view('ideas.index', [
+            'ideas' => $ideas
+        ]);
     }
     
     
