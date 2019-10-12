@@ -58,20 +58,23 @@ class IdeaController extends Controller
        $jobs = Job::all();
 
         return view('ideas.edit',[
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'idea' => $idea
         ]);
         
         
     }
 
-    public function update(int $id)
+    public function update(Idea $idea, Request $request)
     {
-        $idea = Idea::find($id);
+        // $idea = Idea::find($id);
+        // dd($request);
         $idea->title = $request->title;
         $idea->body = $request->body;
         $idea->created_at = Carbon::now();
         $idea->updated_at = Carbon::now();
+        $idea->save();
 
-        return redirect()->route('ideas.index');
+        return redirect()->route('idea.index');
     }
 }
