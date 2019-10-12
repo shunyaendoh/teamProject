@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-<<<<<<< HEAD
     //Determine if the user is authorized to make this request.
 
     protected $fillable = [
-        'user_id','nickname','age','job','locate','comment','gender'
+        'user_id','nickname','age','job','locate','comment','gender','picture_path'
     ];
 
     public function users()
@@ -19,10 +18,4 @@ class Profile extends Model
     }
 
     //Get the validation rules that apply to the request.
-=======
-    public function user()
-    {
-        return $this->hasOne('App\User');
-    }
->>>>>>> master
 }
