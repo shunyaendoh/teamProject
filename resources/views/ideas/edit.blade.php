@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>アイデア編集画面</title>
 
+   
+
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
    
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
 
     <!-- BootstrapのJS読み込み -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -33,16 +36,25 @@
  @method('PUT')
  @csrf
 
- <link rel="stylesheet" href="{{ asset('css/create.css') }}">
+ <link rel="stylesheet" href="{{ asset('css/idea_create_edit.css') }}">
  
- <div class="container p-3">
+ <div class="container my-3 p-3 col-5 bg-light">
 
     <h1 class="text-center p-3">Edit your idea!</h1>
 
+        @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $message)
+            <li class = "alert alert-danger">
+                {{$message}}
+            </li>
+                @endforeach 
+        </ul>
+        @endif
  
     <div class="row form-group m-5">
         <label for="title">タイトル：</label>
-        <input class="title" id="title" type="title" name="title" placeholder="アイデアのタイトルを入力して下さい。">
+        <input class="title" id="title" type="title" name="title" value="{{old('title', $idea->title)}}">
     </div>
     
     
@@ -51,7 +63,7 @@
         <div>
             <select class="form-control" name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="post_idea" required>
         
-            <option class="txt-center" value="who">{{'--未選択--'}}</option>
+            <option class="txt-center" value="{{old('job_id', $idea->job_id)}}">{{'--未選択--'}}</option>
             @foreach ($jobs as $job)
             <option value=" {{ $job->id }} ">{{ $job->name }}</option>
             @endforeach
@@ -61,11 +73,11 @@
 
     <div class="row form-group m-5">
         <label for="body">アイデア：</label>
-        <textarea class="body" id="body" name="body" placeholder="アイデアについて詳しく書いて下さい。"></textarea>
+        <textarea class="body" id="body" name="body">{{old('body', $idea->body)}}</textarea>
     </div>
 
     <div class="text-center text-md-right p-3">
-        <input class="btn-primary btn-lg" type="submit" value="更新">
+        <input class="shadow btn-primary btn-lg" type="submit" value="更新">
         <!-- <input type="reset" value="リセット"> -->
     </div>
 

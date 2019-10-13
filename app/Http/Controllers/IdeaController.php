@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Idea;
 use Carbon\Carbon;
 use App\Job;
+use App\Http\Requests\EditIdea;
+use App\Http\Requests\CreateIdea;
 use Illuminate\Support\Facades\Auth;
 
 class IdeaController extends Controller
@@ -88,7 +90,7 @@ class IdeaController extends Controller
     }
 
     //アイデア投稿データを保存
-    public function store(Request $request)
+    public function store(CreateIdea $request)
     {
         //Ideaモデルのインスタンスを取得
         $idea = new Idea();
@@ -112,24 +114,34 @@ class IdeaController extends Controller
     public function edit(Idea $idea)
     {
        $jobs = Job::all();
+       
+       if (Auth::user()->id !== $idea->user_id) {
+        abort(403);
+       }
 
         return view('ideas.edit',[
             'jobs' => $jobs,
             'idea' => $idea
         ]);
         
+       
         
     }
 
-    public function update(Idea $idea, Request $request)
+    public function update(Idea $idea, EditIdea $request)
     {
         // $idea = Idea::find($id);
         // dd($request);
         $idea->title = $request->title;
         $idea->body = $request->body;
+        $idea->job_id = $request->job_id;
         $idea->created_at = Carbon::now();
         $idea->updated_at = Carbon::now();
         $idea->save();
+
+        if (Auth::user()->id !== $idea->user_id) {
+            abort(403);
+           }
 
         return redirect()->route('idea.index');
     }
