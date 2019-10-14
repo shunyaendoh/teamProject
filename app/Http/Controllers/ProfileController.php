@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 //ModelであるProfile.phpとこのControllerをつなぐ。use namespace名\Model名;
 use App\Profile;
@@ -13,14 +14,9 @@ class ProfileController extends Controller
 {
 
     //プロフィールを表示する
-    public function index()
+    public function index(User $user)
     {   
-        //緑の文字のProfileはModel名
-        // Auth::user()->profile;
-        // $profile = Profile::where('user_id', $id)->first(); 
-        // User::where('id', $id)->with('profile')->first();
-        $profile = Profile::where('user_id', Auth::user()->id)->first();
-        //viewsのprofilesのindex.blade.phpに表示するように指示。（'フォルダ名.ファイル名'）
+        $profile = $user->profile;
         return view('profiles.profile', [
             'profile' => $profile,
         ]);
