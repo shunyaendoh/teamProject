@@ -8,5 +8,9 @@
     "/css/photopile.css": "/css/photopile.css",
     "/css/index.css": "/css/index.css",
     "/js/jqfloat.js": "/js/jqfloat.js",
-    "/js/main.js": "/js/main.js"
+    "/js/main.js": "/js/main.js",
+    "/css/profile.css": "/css/profile.css",
+    "/js/profile.js": "/js/profile.js",
+    "/js/lightbox.js": "/js/lightbox.js",
+    "/css/lightbox.css": "/css/lightbox.css"
 }

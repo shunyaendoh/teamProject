@@ -20,5 +20,7 @@
         "popper.js": "^1.12",
         "vue": "^2.5.7"
     },
-    "dependencies": {}
+    "dependencies": {
+        "lightbox2": "^2.11.1"
+    }
 }

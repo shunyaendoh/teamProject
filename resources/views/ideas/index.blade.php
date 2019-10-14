@@ -5,7 +5,7 @@
     {{-- index.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/index.css">
     {{-- app.cssの呼び出し --}}
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
 
     @extends('layouts.app')
     @section('content')

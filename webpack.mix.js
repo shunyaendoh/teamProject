@@ -20,4 +20,9 @@ mix.js('resources/js/app.js', 'public/js')
     .copy(['resources/assets/css/photopile.css'], 'public/css/photopile.css')
     .copy(['resources/assets/css/index.css'], 'public/css/index.css')
     .scripts(['resources/assets/js/jqfloat.js'], 'public/js/jqfloat.js')
-    .scripts(['resources/assets/js/main.js'], 'public/js/main.js');
+    .scripts(['resources/assets/js/main.js'], 'public/js/main.js')
+    .copy(['resources/assets/css/profile.css'], 'public/css/profile.css')
+    .scripts(['resources/assets/js/profile.js'], 'public/js/profile.js')
+    .scripts(['resources/assets/js/lightbox.js'], 'public/js/lightbox.js')
+    .copy(['resources/assets/css/lightbox.css'], 'public/css/lightbox.css');
+    
