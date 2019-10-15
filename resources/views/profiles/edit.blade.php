@@ -29,22 +29,22 @@
   
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="1" checked>
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="0" checked>
   <label class="form-check-label" for="exampleRadios1">
-    男性
+    未設定
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="2">
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="1">
   <label class="form-check-label" for="exampleRadios2">
-    女性
+    男性
   </label>
 </div>
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="3">
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="2">
   <label class="form-check-label" for="exampleRadios3">
-    その他
+    女性
   </label>
 </div>
 

@@ -20,10 +20,10 @@
                     <div class=left>
                     <!-- ここにプロフィール写真入ります(class="profile") -->
                       
-                      <a href="/{{$profile->picture_path}}" data-lightbox="abc" data-title="">
-                        <img src="/{{$profile->picture_path}}" alt="プロフィール画像" class="profile">
+                      <a href="{{asset($profile->picture_path)}}" data-lightbox="abc" data-title="">
+                        <img src="{{asset($profile->picture_path)}}" alt="プロフィール画像" class="profile">
                       </a>
-                      <a href="#####" class= "edit">編集</a>
+                    <a href="{{route('profile.edit',['user_id' => $profile->user_id])}}" class= "edit">編集</a>
                     </div>
                     
                     <div class="right">
@@ -33,15 +33,15 @@
                             <!-- 職業を表示 -->
                             <p class="job">{{$profile -> job}}</p>
                               <!-- 性別を表示 -->
-                              @if ($profile -> gender == 1)
-                                 <!-- genderが1だった場合は男 -->
+                              @if ($profile -> gender == 0)
+                                 <!-- genderが1だった場合は未設定 -->
+                                <p class="gender">未設定</p>
+                              @elseif ($profile -> gender == 1)
+                                 <!-- genderが2だった場合は男 -->
                                 <p class="gender">男性</p>
                               @elseif ($profile -> gender == 2)
                                  <!-- genderが2だった場合は女 -->
                                 <p class="gender">女性</p>
-                              @elseif ($profile -> gender == 0)
-                                 <!-- genderが2だった場合は女 -->
-                                <p class="gender">未設定</p>
                               @endif
                             
                         </div>
