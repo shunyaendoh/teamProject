@@ -1,152 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>マイページ</title>
+    {{-- reset.cssの呼び出し --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
-
-    <style>
-        .wrapper {
-      margin: 0 auto;
-      background-color: pink;
-    }
-    header {
-      background: tomato;
-    }
-
-    .main {
-      background: pink;
-      display: flex;
-      justify-content: center;
-    }
-
-    .content {
-      display: flex;
-      margin-top: 150px;
-      margin-bottom: 100px;
-    }
-
-
-    footer {
-      background: plum;
-    }
-
-    .profile {
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      margin-right: 60px;
-    }
-
-
-    .left {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .left a{
-      margin-top: 5px;
-    }
-
-    .top {
-      display: flex;
-      margin-bottom: 10px;
-    }
-
-    .top p{
-      margin-left: 20px;
-    }
-
-    .middle {
-      display: flex;
-      margin-bottom: 10px;
-      align-items: flex-end;
-    }
-
-    .middle p{
-      margin-left: 20px;
-    }
-
-    .bottom {
-      display: flex;
-      background-color: white;
-      height: 100px;
-      width: 200px;
-      border: solid 1px;
-      margin-left: 20px;
-    }
-
-    .comment{
-      margin-top: 5px;
-      padding-left: 5px;
-    }
-
-    .name{
-      font-size: 30px;
-    }
-
-    .age {
-      font-size: 14px;
-    }
-
-    .edit {
-      margin-left: 30px;
-    }
-    .tab_item {
-      display: none;
-    }
-
-    .is-active-item {
-      display: block;
-    }
-
-    .idea-save{
-      margin-left: 400px;
-    }
-
-    /*ここから下は見た目だけ*/
-    a {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .tab_btn {
-      font-size: 24px;
-      padding: 5px;
-      border-bottom: solid 1px #E0F2F7;
-      display: inline-block;
-      background-color: #E0F2F7;
-      opacity: 0.5;
-      border-radius: 5px 5px 0 0;
-    }
-    
-    .is-active-btn {
-      opacity: 1;
-      border-bottom: solid 1px #E0F2F7;
-      color: #00BFFF;
-    }
-    
-    .tab_item {
-      width: 800px;
-      height: 600px;
-      padding: 5px;
-      color: #00BFFF;
-      background-color: #E0F2F7;
-    }
-
-
-    </style>
-    
+    {{-- lightbox.cssの呼び出し --}}
+    <link href="/css/lightbox.css" rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet"> --}}
+     {{-- profile.cssの呼び出し --}}
+    <link rel="stylesheet" href="/css/profile.css">
+  
 </head>
 <body>
+    @extends('layouts.app')
+  @section('content')
     <div class="wrapper">
-        <header>header</header>
         <div class="container">
             <div class="main">
                 <div class="content">
@@ -247,8 +113,14 @@
             </script>
             
         </div>
-        <footer>footer</footer>
         </div>
     </div>
-</body>
-</html>
+    {{-- Jqueryの呼び出し --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
+    {{-- lightbox.jsの呼び出し --}}
+    <script src="/js/lightbox.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    {{-- profile.jsの呼び出し --}}
+    <script src="/js/profile.js"></script>
+    @endsection
