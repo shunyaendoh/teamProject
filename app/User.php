@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
     public function favorites()
     {
-        return $this->hasMany('App\Favorite');
+        return $this->belongsToMany('App\Idea', 'favorites');
     }
     public function chats()
     {
