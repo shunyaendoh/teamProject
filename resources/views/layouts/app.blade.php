@@ -1,76 +1,52 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" >
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
 </head>
-
 <body>
-    <div id="">
+    
+    <header>
+    
+        <div>
 
-
-        <header>
-            <div class="collapse bg-dark" id="navbarHeader">
-                <div class="container">
-
-                    <!-- Left Side Of Navbar -->
+        <nav class="navbar navbar-light navbar-expand bg-dark">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">アイデア村</a>
+                
+                <div id="menu" class="collapse">
+<!-- 
                     <ul class="navbar-nav mr-auto">
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="">ホームページ</a>
                         </li>
-                        @if (Route::has('register'))
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="">マイページ</a>
                         </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}0000 <span class="caret"></span>
-                            </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">お問い合わせ</a>
                         </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-            <div class="navbar navbar-dark bg-dark shadow-sm">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">ログアウト</a>
+                        </li>
+
+                    </ul> -->
+
+                    <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container d-flex justify-content-between">
                     <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
@@ -89,156 +65,35 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
-            </div>
-        </header>
 
-        <main class="py-4 container">
-            @yield('content')
-        </main>
-        <!-- Footer -->
-        <footer class="page-footer font-small unique-color-dark">
+                </div>   
 
-            <div style="background-color: #6351ce;">
-                <div class="container">
+                <!-- <button class="navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                     -->
+                    
+            </nav>       
 
-                    <!-- Grid row-->
-                    <div class="row py-4 d-flex align-items-center">
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                            <h6 class="mb-0"></h6>
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                            <!-- Facebook -->
-                            <a class="fb-ic">
-                                <i class="fab fa-facebook-f white-text mr-4"> </i>
-                            </a>
-                            <!-- Twitter -->
-                            <a class="tw-ic">
-                                <i class="fab fa-twitter white-text mr-4"> </i>
-                            </a>
-                            <!-- Google +-->
-                            <a class="gplus-ic">
-                                <i class="fab fa-google-plus-g white-text mr-4"> </i>
-                            </a>
-                            <!--Linkedin -->
-                            <a class="li-ic">
-                                <i class="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>
-                            <!--Instagram-->
-                            <a class="ins-ic">
-                                <i class="fab fa-instagram white-text"> </i>
-                            </a>
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row-->
-
-                </div>
-            </div>
-
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left mt-5">
-
-                <!-- Grid row -->
-                <div class="row mt-3">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-                        <!-- Content -->
-                        <h6 class="text-uppercase font-weight-bold"></h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>アイデア村〜idea village〜</p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold"> </h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">About us</h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-                        <p>
-                            <a href="#!"></a>
-                        </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                        <!-- Links -->
-                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <i class="fas fa-home mr-3"></i> </p>
-                        <p>
-                            <i class="fas fa-envelope mr-3"></i> </p>
-                        <p>
-                            <i class="fas fa-phone mr-3"></i> </p>
-                        <p>
-                            <i class="fas fa-print mr-3"></i> </p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-            </div>
-            <!-- Footer Links -->
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2019 ○◯○:
-                <a href="https://mdbootstrap.com/education/bootstrap/"> ◯◯◯</a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-        <!-- Footer -->
+        </div>
 
 
-    </div>
+
+
+
+
+    </header>
+    @yield('content')
+
+    <!-- ここからフッター -->
+    <footer class="text-center text-muted py-4">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Ideathon.com
+            <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> ◯◯◯</a> -->
+        </div>
+
+    </footer>
 </body>
-
 </html>
+
+

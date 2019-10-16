@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>アイデア投稿画面</title>
+    <title>アイデア編集画面</title>
 
    
 
@@ -29,18 +29,18 @@
 
 
 
-<form action="{{ route('idea.store') }}" method="POST" name="idea_post" id="post_idea">
+<form action="{{ route('idea.update', ['idea' => $idea->id]) }}" method="POST" name="idea_post" id="post_idea">
   <!-- formにidをつけてあげて、selectタグとつなげる時にform=で同じやつを書いて、繋げてあげる -->
 
   <!-- セキュリティのために必要 -->
- 
+ @method('PUT')
  @csrf
 
  <link rel="stylesheet" href="{{ asset('css/idea_create_edit.css') }}">
  
  <div class="container my-3 p-3 col-5 bg-light">
 
-    <h1 class="text-center p-3">Share your idea!</h1>
+    <h1 class="text-center p-3">Edit your idea!</h1>
 
         @if($errors->any())
         <ul>
@@ -54,16 +54,16 @@
  
     <div class="row form-group m-5">
         <label for="title">タイトル：</label>
-        <input class="title" id="title" type="title" name="title" placeholder="アイデアのタイトルを入力して下さい。">
+        <input class="title" id="title" type="title" name="title" value="{{old('title', $idea->title)}}">
     </div>
     
     
     <div class="row m-5">
         <label for="job_id">{{ __('対象の職業：') }}</label>
         <div>
-            <select class="form-control border-secondary" name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="post_idea" required>
+            <select class="form-control" name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="post_idea" required>
         
-            <option class="txt-center" value="">{{'--未選択--'}}</option>
+            <option class="txt-center" value="{{old('job_id', $idea->job_id)}}">{{'--未選択--'}}</option>
             @foreach ($jobs as $job)
             <option value=" {{ $job->id }} ">{{ $job->name }}</option>
             @endforeach
@@ -73,11 +73,11 @@
 
     <div class="row form-group m-5">
         <label for="body">アイデア：</label>
-        <textarea class="body border-secondary" id="body" name="body" placeholder="アイデアについて詳しく書いて下さい。"></textarea>
+        <textarea class="body" id="body" name="body">{{old('body', $idea->body)}}</textarea>
     </div>
 
     <div class="text-center text-md-right p-3">
-        <input class="shadow btn-primary btn-lg" type="submit" value="投稿">
+        <input class="shadow btn-primary btn-lg" type="submit" value="更新">
         <!-- <input type="reset" value="リセット"> -->
     </div>
 
