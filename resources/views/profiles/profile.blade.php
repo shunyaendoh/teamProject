@@ -191,16 +191,14 @@
                                         </div>
                                         </div>
                                     @endforeach
-                                
                             </div>
-
                         {{-- jquery-uiの呼び出し --}}
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
                             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
                         {{-- photopileの呼び出し --}}
                         <script src="/js/photopile_wo_main.js"></script>
                         {{-- main.jsの呼び出し --}}
-                        <script src="/js/main.js"></script>
+                        <script src="/js/wo_main.js"></script>
                     </div>
                 {{-- /いいねしたアイデアの表示 --}}
                             
