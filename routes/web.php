@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ABOUT USページ
     ROUTE::get('/about_us', function () {
         return view('app.about_us');
-    });
+    })->name('about_us');
 
     Route::get('/chatbox', 'ChatkitController@index');
     Route::post('/chatjoin', 'ChatkitController@join')->name('chat.join');

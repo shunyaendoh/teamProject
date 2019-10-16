@@ -1,7 +1,9 @@
+    <script src="/js/app.js" defer></script>
+    {{-- app.cssの呼び出し --}}
+    <link rel="stylesheet" href="/css/app.css">
 @extends('layouts.app')
-
 @section('content')
-<div align="center" class="p-3 mb-2 bg-primary text-white h1">About us</div>
+<div class="p-3 mb-2 bg-primary text-white h1">About us</div>
 
 <form action="/form.php" method="post">
      <div class="form-group">
