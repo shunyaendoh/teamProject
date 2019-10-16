@@ -29,22 +29,22 @@
   
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="1" checked>
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="0" checked>
   <label class="form-check-label" for="exampleRadios1">
-    男性
+    未設定
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="2">
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="1">
   <label class="form-check-label" for="exampleRadios2">
-    女性
+    男性
   </label>
 </div>
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="3">
+  <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="2">
   <label class="form-check-label" for="exampleRadios3">
-    その他
+    女性
   </label>
 </div>
 
@@ -55,25 +55,14 @@
     <div class="col">
       <input type="text" class="form-control" placeholder="comment" name="comment">
     </div>
-    <!-- <div class="col">
-      <input type="text" class="form-control" placeholder="skills" name="skills">
-    </div> -->
   </div>
 
 
-<select class="custom-select" form="edit_profile" name="job">
-  <option selected>職業</option>
-  @foreach($jobs as $job)
-  <option value="{{$job->id}}">{{$job->name}}</option>
-  @endforeach
-</select>
-<!-- 
-  <div class="form-group">
-    <label for="exampleInputEmail1">メールアドレス</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
-    <small id="emailHelp" class="form-text text-muted"></small>
+  <div class="form-row">
+      <div class="col">
+          <input type="text" class="form-control" placeholder="job"" name="job">
+        </div>
   </div>
-   -->
 
    <div class="form-group row">
         <label for="picture" class="col-md-4 col-form-label text-md-right">写真</label>

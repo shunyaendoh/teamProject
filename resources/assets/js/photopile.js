@@ -41,11 +41,11 @@ var photopile = (function () {
     function init() {
 
         // display gallery loading image in container div while loading
-        $('.js div.photopile-wrapper').css({
-            'background-repeat': 'no-repeat',
-            'background-position': '50%, 50%',
-            'background-image': 'url(' + loading + ')'
-        });
+        // $('.js div.photopile-wrapper').css({
+        //     'background-repeat': 'no-repeat',
+        //     'background-position': '50%, 50%',
+        //     'background-image': 'url(' + loading + ')'
+        // });
 
         // initialize thumbnails and photo container
         $('ul.photopile').children().each(function () {
@@ -240,9 +240,9 @@ var photopile = (function () {
         },
 
         // Removes the active class from all thumbnails.
-        clearActiveClass: function () {
-            $('li.' + this.active).fadeTo(fadeDuration, 1).removeClass(this.active);
-        }
+        // clearActiveClass: function () {
+        //     $('li.' + this.active).fadeTo(fadeDuration, 1).removeClass(this.active);
+        // }
 
     } // thumbnail
 
@@ -270,14 +270,14 @@ var photopile = (function () {
             // append and style photo container
             $('body').append(this.container);
             this.container.css({
-                'display': 'none',
-                'position': 'absolute',
-                'padding': thumbBorderWidth,
-                'z-index': photoZIndex,
-                'background': photoBorderColor,
-                'background-image': 'url(' + loading + ')',
-                'background-repeat': 'no-repeat',
-                'background-position': '50%, 50%'
+                // 'display': 'none',
+                // 'position': 'absolute',
+                // 'padding': thumbBorderWidth,
+                // 'z-index': photoZIndex,
+                // 'background': photoBorderColor,
+                // 'background-image': 'url(' + loading + ')',
+                // 'background-repeat': 'no-repeat',
+                // 'background-position': '50%, 50%'
             });
 
             // append and style image
@@ -331,9 +331,9 @@ var photopile = (function () {
             }, pickupDuration, function () {
                 self.isPickedUp = false;
                 thumb.clearActiveClass();
-                self.container.fadeOut(fadeDuration, function () {
-                    if (callback) callback();
-                });
+                // self.container.fadeOut(fadeDuration, function () {
+                //     if (callback) callback();
+                // });
             });
         },
 
