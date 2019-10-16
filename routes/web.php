@@ -37,6 +37,11 @@ Route::group(['middleware' => 'auth'], function () {
     ROUTE::get('/about_us', function () {
         return view('app.about_us');
     });
+
+    Route::get('/chatbox', 'ChatkitController@index');
+    Route::post('/chatjoin', 'ChatkitController@join')->name('chat.join');
+    Route::get('chat', 'ChatkitController@chat')->name('chat');
+    Route::post('logout', 'ChatkitController@logout')->name('logout');
 });
 
 Auth::routes();
