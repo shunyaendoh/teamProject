@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 //ModelであるProfile.phpとこのControllerをつなぐ。use namespace名\Model名;
 use App\Profile;
+use App\Job;
+use App\User;
 //認証機能
 use \Auth;
 
@@ -54,25 +56,42 @@ class ProfileController extends Controller
     
 
     //プロフィール編集
-    public function edit()
+    public function edit(User $user)
     {
-        return view('profiles.edit');
+        $jobs = Job::all();
+        return view('profiles.edit',[
+            'jobs' => $jobs,
+            'user' => $user
+        ]);
     }
 
     public function update(Request $request)
     {
+        // dd($request->all());
+        $imgPath = $this->saveProfilePicture($request->file('picture'));
         $profile = Profile::find(Auth::user()->id);
         $profile->nickname = $request->nickname;
         $profile->age = $request->age;
         $profile->job = $request->job;
-        $profile->skills = $request->skills;
+        // $profile->skills = $request->skills;
         $profile->locate = $request->locate;
         $profile->comment = $request->comment;
         $profile->gender = $request->gender;
+        $profile->picture_path = $imgPath;
         $profile->save();
 
         //ページを更新
-        return redirect()->route('profiles.index');
+        return redirect()->route('profile.index',[
+            'user_id' => $profile->user_id
+        ]);
         
+    }
+
+    private function saveProfilePicture($image)
+    {
+        $imgPath = $image->store('images/profilePicture', 'public');
+
+        // dd($imgPath);
+        return 'storage/' . $imgPath;
     }
 }
