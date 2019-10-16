@@ -164,7 +164,7 @@ $('.idea').on('click', function() {
   $('.modal-body').html(`<div><p class="h2">${body}</p><p class="display-5 created-at">${createdAt}</p></div>`);
   $('.modal-title').html(`<div style="display:flex;"><a href="profile/${userId}"><img src="/${picturePath}" class="profile-image"></a><div class="ml-4"><p>${nickname}</p><h2>${title}</h2></<h2></div>`);
   $('#button-edit').attr('onclick',`location.href='/idea/edit/${id}/'`);
-  $('#button-chat').attr('onclick',`location.href='/chat/edit/${userId}/1'`);
+  $('#button-chat').attr('onclick',`location.href='/chat/${userId}/1'`);
   $('#button-favorite').attr('onclick',`location.href='/favorite/${id}'`);
 });
 $(document).on('click', '.js-like', function () {

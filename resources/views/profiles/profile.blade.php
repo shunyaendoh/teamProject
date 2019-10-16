@@ -126,7 +126,7 @@
                                             ...
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" id="button-chat">編集する</button>
+                                                <button type="button" class="btn btn-secondary" id="button-edit">編集する</button>
                                                 {{-- <button type="button" class="btn btn-warning" id="button-favorite">お気に入り</button> --}}
                                                 <div class=" mt-3 ml-3">
                                                         <i class="far fa-heart fa-lg js-like" id="favorite"></i>
