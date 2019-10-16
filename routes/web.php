@@ -48,4 +48,4 @@ Auth::routes();
 
 // テスト用
 
-Route::view('/main', 'app.index');
+Route::view('/main', 'app.profile_edit');
