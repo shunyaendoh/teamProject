@@ -84,6 +84,7 @@
 }
 
 .idea-save{
+  display: inline-block;
   margin-left: 130px;
 }
 
@@ -116,4 +117,10 @@ a {
   padding: 5px;
   color: #00BFFF;
   background-color: #E0F2F7;
+}
+
+.profile-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
