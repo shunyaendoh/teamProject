@@ -16,7 +16,6 @@ class IdeaController extends Controller
     //アイデア投稿画面表示
     public function index()
     {
-        // dd($latestIdea->id);
         $ideas = Idea::with('user.profile')
             ->inRandomOrder()
             ->limit(30)
@@ -64,13 +63,13 @@ class IdeaController extends Controller
                 'heart'=> 'color:red;'
             ],
         ];
-
+         
         $ideas->map(function($idea) use($colorName) {
             $idea->color_name = $colorName[$idea->job_id - 1];
         });
-
+        
         // dd($ideas);
-
+        
         return view('ideas.index', [
             'ideas' => $ideas
         ]);
