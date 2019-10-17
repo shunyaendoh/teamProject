@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Idea;
 use Carbon\Carbon;
 use App\Job;
+use App\Http\Requests\EditIdea;
+use App\Http\Requests\CreateIdea;
 use Illuminate\Support\Facades\Auth;
 
 class IdeaController extends Controller
@@ -14,7 +16,6 @@ class IdeaController extends Controller
     //アイデア投稿画面表示
     public function index()
     {
-        // dd($latestIdea->id);
         $ideas = Idea::with('user.profile')
             ->inRandomOrder()
             ->limit(30)
@@ -62,13 +63,13 @@ class IdeaController extends Controller
                 'heart'=> 'color:red;'
             ],
         ];
-
+         
         $ideas->map(function($idea) use($colorName) {
             $idea->color_name = $colorName[$idea->job_id - 1];
         });
-
+        
         // dd($ideas);
-
+        
         return view('ideas.index', [
             'ideas' => $ideas
         ]);
@@ -88,7 +89,7 @@ class IdeaController extends Controller
     }
 
     //アイデア投稿データを保存
-    public function store(Request $request)
+    public function store(CreateIdea $request)
     {
         //Ideaモデルのインスタンスを取得
         $idea = new Idea();
@@ -109,21 +110,38 @@ class IdeaController extends Controller
 
 
     //アイデア編集
-    public function edit()
+    public function edit(Idea $idea)
     {
+       $jobs = Job::all();
        
-        return view('ideas.edit');
+       if (Auth::user()->id !== $idea->user_id) {
+        abort(403);
+       }
 
+        return view('ideas.edit',[
+            'jobs' => $jobs,
+            'idea' => $idea
+        ]);
+        
+       
+        
     }
 
-    public function update(int $id)
+    public function update(Idea $idea, EditIdea $request)
     {
-        $idea = Idea::find($id);
+        // $idea = Idea::find($id);
+        // dd($request);
         $idea->title = $request->title;
         $idea->body = $request->body;
+        $idea->job_id = $request->job_id;
         $idea->created_at = Carbon::now();
         $idea->updated_at = Carbon::now();
+        $idea->save();
 
-        return redirect()->route('ideas.index');
+        if (Auth::user()->id !== $idea->user_id) {
+            abort(403);
+           }
+
+        return redirect()->route('idea.index');
     }
 }
