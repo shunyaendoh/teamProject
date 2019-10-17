@@ -59,7 +59,7 @@
                     </span>
                 @endif
                 <div>
-                    <form action="{{ route('chat.join') }}" method="post">
+                    <form action="{{ url('/chatbox') }}" method="post">
                         @csrf
                         <div class="input-group">
                             <input type="text" name="username" class="form-control" 

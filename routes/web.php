@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/chatbox', 'ChatkitController@index');
-    Route::post('/chatjoin', 'ChatkitController@join')->name('chat.join');
+    Route::post('/chatbox', 'ChatkitController@join')->name('chat.join');
     Route::get('chat', 'ChatkitController@chat')->name('chat');
     Route::post('logout', 'ChatkitController@logout')->name('logout');
 });

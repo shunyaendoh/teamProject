@@ -6,8 +6,10 @@
 
 require('./bootstrap');
 
-
+// window.$ = require('jquery')
+// window.JQuery = require('jquery')
 window.Vue = require('vue');
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

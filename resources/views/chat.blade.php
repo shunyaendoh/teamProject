@@ -69,7 +69,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header"> Live Chat Room </div>
-                            <chatbox user-id='{{ $userId }}' room-id='{{ $roomId }}' :initial-messages='@json($messages)'> </chatbox>
+                            <chatbox user-id='{{ $userId }}' room-id='{{ $roomId }}' :initial-messages='@json($messages)'></chatbox>
                         </div>
                     </div>
                 </div>
