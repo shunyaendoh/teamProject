@@ -108,12 +108,11 @@
                             <ul class="photopile">
                                 @foreach($user->ideas as $idea)
                                 <li class="mx-3 my-3">
-                                <a href="#" class="idea {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalCenter" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
+                                <a href="#" class="idea {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalPost" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
                                 </li>
                                 @endforeach
                             </ul>
-                            @foreach($user->ideas as $idea)
-                                <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="modalPost" tabindex="-1" role="dialog" aria-labelledby="modalPostTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content" id="modalBack">
                                             <div class="modal-header">
@@ -126,17 +125,13 @@
                                             ...
                                             </div>
                                             <div class="modal-footer">
+                                                @if (Auth::check() && Auth::user()->id == $user->id)
                                                 <button type="button" class="btn btn-secondary" id="button-edit">編集する</button>
-                                                {{-- <button type="button" class="btn btn-warning" id="button-favorite">お気に入り</button> --}}
-                                                <div class=" mt-3 ml-3">
-                                                        <i class="far fa-heart fa-lg js-like" id="favorite"></i>
-                                                        <input class="idea-id" type="hidden" value="">
-                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                     </div>
-                                @endforeach    
                         </div>
                     {{-- jqueryの呼び出し --}}
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -162,14 +157,13 @@
                                 <ul class="photopile">
                                     @foreach($user->favorites as $idea)
                                     <li class="mx-3 my-3">
-                                    <a href="#" class="idea {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalCenter" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
+                                    <a href="#" class="idea2 {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalFav" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
                                     </li>
                                     @endforeach
                                 </ul>
-                                @foreach($user->favorites as $idea)
-                                    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="modalFav" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content" id="modalBack">
+                                            <div class="modal-content" id="modalBackfav">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="modalLongTitle"></h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -181,26 +175,28 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" id="button-chat">チャットする</button>
-                                                    {{-- <button type="button" class="btn btn-warning" id="button-favorite">お気に入り</button> --}}
                                                     <div class=" mt-3 ml-3">
-                                                            <i class="far fa-heart fa-lg js-like" id="favorite"></i>
+                                                            @if (Auth::check() && $user->favorites->contains(function ($user) {
+                                                                return $user->id === Auth::user()->id;
+                                                            }))
+                                                                <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+                                                            @else
+                                                                <i class="far fa-heart fa-lg text-danger js-like"></i>
+                                                            @endif
                                                             <input class="idea-id" type="hidden" value="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         </div>
-                                    @endforeach
-                                
                             </div>
-
                         {{-- jquery-uiの呼び出し --}}
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
                             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
                         {{-- photopileの呼び出し --}}
                         <script src="/js/photopile_wo_main.js"></script>
                         {{-- main.jsの呼び出し --}}
-                        <script src="/js/main.js"></script>
+                        <script src="/js/wo_main2.js"></script>
                     </div>
                 {{-- /いいねしたアイデアの表示 --}}
                             
