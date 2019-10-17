@@ -26,6 +26,7 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts(['resources/assets/js/wo_main2.js'], 'public/js/wo_main2.js')
     .copy(['resources/assets/css/lightbox.css'], 'public/css/lightbox.css')
     .scripts(['resources/assets/js/lightbox.js'], 'public/js/lightbox.js')
+    .scripts(['resources/assets/js/header.js'], 'public/js/header.js')
     .scripts(['resources/assets/js/profile.js'], 'public/js/profile.js')
     .copy(['resources/assets/css/profile.css'], 'public/css/profile.css')
 
