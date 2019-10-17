@@ -4,12 +4,10 @@
     <link rel="stylesheet" href="/css/photopile.css">
     {{-- index.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/index.css">
-    {{-- app.cssの呼び出し --}}
-    <link rel="stylesheet" href="css/app.css">
 
     @extends('layouts.app')
     @section('content')
-    <div id="content" class="container">
+    <div id="content" class="container bg-light">
         <div class="photopile_wrapper">
             <ul class="photopile">
                 @foreach($ideas as $idea)
@@ -33,9 +31,14 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" id="button-chat">チャットする</button>
-                                {{-- <button type="button" class="btn btn-warning" id="button-favorite">お気に入り</button> --}}
                                 <div class=" mt-3 ml-3">
-                                        <i class="far fa-heart fa-lg js-like" id="favorite"></i>
+                                        @if (Auth::check() && $user->favorites->contains(function ($user) {
+                                            return $user->id === Auth::user()->id;
+                                        }))
+                                            <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+                                        @else
+                                            <i class="far fa-heart fa-lg text-danger js-like"></i>
+                                        @endif
                                         <input class="idea-id" type="hidden" value="">
                                 </div>
                             </div>
@@ -47,7 +50,6 @@
         </div>
         {{-- jqueryの呼び出し --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="/js/app.js"></script>
         {{-- jquery-uiの呼び出し --}}
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>

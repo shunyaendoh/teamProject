@@ -14,7 +14,9 @@ class AddPicturePathToProfiles extends Migration
     public function up()
     {
        Schema::table('profiles', function (Blueprint $table) {
-            $table->string('picture_path')->after('gender');
+            $table->string('picture_path')
+                  ->after('gender')
+                  ->default('storage/images/profilePicture/defaultPicture.jpg');
         });
     }
 

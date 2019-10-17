@@ -16,7 +16,14 @@ class IdeaController extends Controller
     //アイデア投稿画面表示
     public function index()
     {
-        $ideas = Idea::with('user.profile')
+        $user = Auth::user();
+        $user->load('ideas', 'favorites');
+
+        $ideas = Idea::where('user_id', '!=',Auth::user()->id )
+            // ->reject(function() {
+            //     $user->favorites->id == ;
+            // })
+            ->with('user.profile')
             ->inRandomOrder()
             ->limit(30)
             ->get();
@@ -71,7 +78,8 @@ class IdeaController extends Controller
         // dd($ideas);
         
         return view('ideas.index', [
-            'ideas' => $ideas
+            'ideas' => $ideas,
+            'user' => $user
         ]);
     }
     

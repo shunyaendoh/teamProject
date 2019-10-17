@@ -3,18 +3,14 @@
     <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
     {{-- photopile.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/photopile.css">
-
-    {{-- reset.cssの呼び出し --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     {{-- lightbox.cssの呼び出し --}}
     <link href="/css/lightbox.css" rel="stylesheet">
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet"> --}}
      {{-- profile.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/profile.css">
   
 </head>
 <body>
-    @extends('layouts.app')
+@extends('layouts.app')
   @section('content')
     <div class="wrapper">
         <div class="container">
@@ -23,10 +19,13 @@
                     
                     <div class=left>
                     <!-- ここにプロフィール写真入ります(class="profile") -->
-                      
-                      <a href="{{asset($user->profile->picture_path)}}" data-lightbox="abc" data-title="">
+                    @if($user->profile->picture_path)
+                    <a href="{{asset($user->profile->picture_path)}}" data-lightbox="abc" data-title="">
                         <img src="{{asset($user->profile->picture_path)}}" alt="プロフィール画像" class="profile">
-                      </a>
+                    </a>
+                        @else
+                        <img src="{{asset('storage/images/profilePicture/defaultPicture.jpg')}}" alt="プロフィール画像" class="profile">
+                        @endif
                     <a href="{{route('profile.edit',['user_id' => $user->profile->user_id])}}" class= "edit">編集</a>
                     </div>
                     
@@ -93,7 +92,7 @@
                     </div>
                 </div>
             </div>
-        <div class="idea-save">
+        <div class="idea-save mb-5">
             <!-- タブのボタン部分 -->
             <a class="tab_btn is-active-btn" href="#item1">投稿したアイデア</a>
             <a class="tab_btn" href="#item2">いいねしたアイデア</a>
@@ -135,7 +134,7 @@
                         </div>
                     {{-- jqueryの呼び出し --}}
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                    <script src="/js/app.js"></script>
+                    {{-- <script src="/js/app.js"></script> --}}
                     {{-- jquery-uiの呼び出し --}}
                     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
                         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
@@ -176,14 +175,8 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" id="button-chat">チャットする</button>
                                                     <div class=" mt-3 ml-3">
-                                                            @if (Auth::check() && $user->favorites->contains(function ($user) {
-                                                                return $user->id === Auth::user()->id;
-                                                            }))
-                                                                <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
-                                                            @else
-                                                                <i class="far fa-heart fa-lg text-danger js-like"></i>
-                                                            @endif
-                                                            <input class="idea-id" type="hidden" value="">
+                                                        <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+                                                        <input class="idea-id" type="hidden" value="">
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile_edit</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
+
 <h1>プロフィールの編集</h1>
 
 <form action="{{ route('profile.update',['user_id' => $user->id ])}}" method="POST" name="$jobs" id="edit_profile" enctype="multipart/form-data">
@@ -72,8 +66,10 @@
         </div>
     </div>
 
-  <button type="submit" class="btn btn-primary">送信</button>
+  <button type="submit" class="btn btn-dark">送信</button>
 </form>
 
 </body>
 </html>
+
+@endsection

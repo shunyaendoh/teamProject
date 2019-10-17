@@ -85,7 +85,6 @@ class RegisterController extends Controller
             'locate' => '',
             'comment' => '',
             'gender' => 0,
-            'picture_path' => '',
         ]);
 
         return $newUser;
