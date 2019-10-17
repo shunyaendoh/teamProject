@@ -2,7 +2,7 @@
     {{-- jquery-ui.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
     {{-- photopile.cssの呼び出し --}}
-    <link rel="stylesheet" href="/css/photopile.css">
+    <link rel="stylesheet" href="/css/photopile_profile.css">
     {{-- lightbox.cssの呼び出し --}}
     <link href="/css/lightbox.css" rel="stylesheet">
      {{-- profile.cssの呼び出し --}}
@@ -12,7 +12,13 @@
 <body>
 @extends('layouts.app')
   @section('content')
-    <div class="wrapper">
+  @if($user->profile->gender == 0)
+    <div class="wrapper-default">
+  @elseif($user->profile->gender == 1)
+    <div class="wrapper-male">
+  @elseif($user->profile->gender == 2)
+    <div class="wrapper-female">
+  @endif
         <div class="container">
             <div class="main">
                 <div class="content">
@@ -26,7 +32,9 @@
                         @else
                         <img src="{{asset('storage/images/profilePicture/defaultPicture.jpg')}}" alt="プロフィール画像" class="profile">
                         @endif
+                    @if(Auth::check() && Auth::user()->id == $user->id)
                     <a href="{{route('profile.edit',['user_id' => $user->profile->user_id])}}" class= "edit">編集</a>
+                    @endif
                     </div>
                     
                     <div class="right">
@@ -99,7 +107,6 @@
 
             <!-- タブのコンテンツ部分 -->
             <div class="tab_item is-active-item" id="item1">
-                <div>
 
                 {{-- 投稿したアイデアの表示 --}}
                     <div id="content" class="container mt-3">
@@ -126,6 +133,8 @@
                                             <div class="modal-footer">
                                                 @if (Auth::check() && Auth::user()->id == $user->id)
                                                 <button type="button" class="btn btn-secondary" id="button-edit">編集する</button>
+                                                @else
+                                                <button type="button" class="btn btn-secondary" id="button-chat2">チャットする</button>                                                
                                                 @endif
                                             </div>
                                         </div>
@@ -145,10 +154,8 @@
                     </div>
                 {{-- /投稿したアイデアの表示   --}}
 
-                </div>
             </div>
             <div class="tab_item" id="item2">
-                <div>
 
                 {{-- いいねしたアイデアの表示 --}}
                     <div id="content" class="container mt-3">
@@ -156,13 +163,14 @@
                                 <ul class="photopile">
                                     @foreach($user->favorites as $idea)
                                     <li class="mx-3 my-3">
-                                    <a href="#" class="idea2 {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalFav" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
+                                    <a href="#" class="idea2 {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalFav-{{ $idea->id }}" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="/images/frame.png" alt="" ></div></a>
                                     </li>
                                     @endforeach
                                 </ul>
-                                    <div class="modal fade" id="modalFav" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                    @foreach($user->favorites as $idea)
+                                    <div class="modal fade" id="modalFav-{{ $idea->id }}" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content" id="modalBackfav">
+                                            <div class="modal-content modalBackfav" id="modalBackfav">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="modalLongTitle"></h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -173,15 +181,22 @@
                                                 ...
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" id="button-chat">チャットする</button>
+                                                    <button type="button" class="btn btn-secondary button-chat" id="button-chat">チャットする</button>
                                                     <div class=" mt-3 ml-3">
-                                                        <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
-                                                        <input class="idea-id" type="hidden" value="">
+                                                            @if (Auth::check() && $idea->favorites->contains(function ($user) {
+                                                                return $user->id === Auth::user()->id;
+                                                            }))
+                                                                <i class="favorite fas fa-heart fa-lg text-danger js-dislike"></i>
+                                                            @else
+                                                                <i class="favorite far fa-heart fa-lg text-danger js-like"></i>
+                                                            @endif
+                                                            <input class="idea-id" type="hidden" value="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         </div>
+                                    @endforeach
                             </div>
                         {{-- jquery-uiの呼び出し --}}
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
@@ -193,7 +208,6 @@
                     </div>
                 {{-- /いいねしたアイデアの表示 --}}
                             
-                </div>
             </div>   
         </div>
         </div>

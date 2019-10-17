@@ -62,6 +62,8 @@ class ProfileController extends Controller
         ];
 
         $user->load('ideas', 'profile', 'favorites');
+        $user->favorites->load('favorites');
+        // dd($user->ideas);
 
         $user->ideas->map(function($idea) use($colorName) {
             $idea->color_name = $colorName[$idea->job_id - 1];
@@ -71,7 +73,7 @@ class ProfileController extends Controller
         });
         // dd($user->favorites);
         return view('profiles.profile', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 

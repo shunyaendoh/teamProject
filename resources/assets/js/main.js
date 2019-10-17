@@ -23,7 +23,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-dark");
                 $(".button-chat").removeClass("btn-light");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-secondary");
@@ -39,7 +39,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-dark");
                 $(".button-chat").removeClass("btn-secondary");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-light");
@@ -55,7 +55,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-dark");
                 $(".button-chat").removeClass("btn-light");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-secondary");
@@ -74,7 +74,7 @@
                 $(".button-chat").removeClass("btn-light");
                 $(".favorite").removeClass("fav-red");                
 
-                $(".favorite").addClass("fav-yellow");
+                $(".favorite").addClass("text-dark");
                 $(".button-chat").addClass("btn-secondary");
                 $(".modal-content").addClass("text-light");
                 $(".modal-content").addClass("bg-danger");
@@ -88,7 +88,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-light");
                 $(".button-chat").removeClass("btn-light");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-secondary");
@@ -104,7 +104,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-dark");
                 $(".button-chat").removeClass("btn-light");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-secondary");
@@ -120,7 +120,7 @@
                 $(".modal-content").removeClass("bg-dark");
                 $(".modal-content").removeClass("text-light");
                 $(".button-chat").removeClass("btn-light");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-secondary");
@@ -136,7 +136,7 @@
                 $(".modal-content").removeClass("bg-light");
                 $(".modal-content").removeClass("text-dark");
                 $(".button-chat").removeClass("btn-secondary");
-                $(".favorite").removeClass("fav-yellow");                
+                $(".favorite").removeClass("text-dark");                
 
                 $(".favorite").addClass("fav-red");
                 $(".button-chat").addClass("btn-light");
