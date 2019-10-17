@@ -119,6 +119,7 @@ ul.photopile li a img {
 /* Photo container */
 div#photopile-active-image-container {
     border: 1px solid #6F6F6F;
+    opacity: 0;
     box-shadow: 0 20px 80px black;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

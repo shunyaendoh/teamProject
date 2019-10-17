@@ -70,7 +70,6 @@
                         <!-- @endif -->
                         </li>
                         @endguest
-
                     </ul>
           
                 </div>
@@ -99,7 +98,7 @@
     <!-- ここからフッター -->
     <footer class="text-center text-muted py-4">
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2019 Ideathon.com
+        <div class="footer-copyright">© 2019 Ideathon.com
             <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> ◯◯◯</a> -->
         </div>
 
