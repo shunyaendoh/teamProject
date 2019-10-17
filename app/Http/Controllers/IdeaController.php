@@ -18,12 +18,8 @@ class IdeaController extends Controller
     {
         $user = Auth::user();
         $user->load('ideas', 'favorites');
-
-        $ideas = Idea::where('user_id', '!=',Auth::user()->id )
-            // ->reject(function() {
-            //     $user->favorites->id == ;
-            // })
-            ->with('user.profile')
+        $ideas = Idea::where('user_id', '!=', Auth::user()->id )
+            ->with('user.profile', 'favorites')
             ->inRandomOrder()
             ->limit(30)
             ->get();

@@ -12,12 +12,12 @@
             <ul class="photopile">
                 @foreach($ideas as $idea)
                 <li>
-                <a href="#" class="idea {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalCenter" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="images/frame.png" alt="" ></div></a>
+                <a href="#" class="idea {{ $idea->color_name['bg'] }} {{ $idea->color_name['text'] }}" style="color:white" data-toggle="modal" data-target="#modalCenter-{{ $idea->id }}" nickname="{{ $idea->user->profile->nickname }}" id="{{ $idea->id }}" user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}" title="{{ $idea->title }}" body="{{ $idea->body }}" created-at="{{ $idea->created_at }}" picture-path="{{ $idea->user->profile->picture_path }}"><div style="position:relative"><p style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">{{$idea->title}}</p><img src="images/frame.png" alt="" ></div></a>
                 </li>
                 @endforeach
             </ul>
             @foreach($ideas as $idea)
-                <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="modalCenter-{{ $idea->id }}" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content" id="modalBack">
                             <div class="modal-header">
@@ -30,14 +30,14 @@
                             ...
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" id="button-chat">チャットする</button>
+                                <button type="button" class="btn btn-secondary button-chat" id="button-chat">チャットする</button>
                                 <div class=" mt-3 ml-3">
-                                        @if (Auth::check() && $user->favorites->contains(function ($user) {
+                                        @if (Auth::check() && $idea->favorites->contains(function ($user) {
                                             return $user->id === Auth::user()->id;
                                         }))
-                                            <i class="fas fa-heart fa-lg text-danger js-dislike"></i>
+                                            <i class="favorite fas fa-heart fa-lg text-danger js-dislike"></i>
                                         @else
-                                            <i class="far fa-heart fa-lg text-danger js-like"></i>
+                                            <i class="favorite far fa-heart fa-lg text-danger js-like"></i>
                                         @endif
                                         <input class="idea-id" type="hidden" value="">
                                 </div>

@@ -54,7 +54,6 @@ class RegisterController extends Controller
             'nickname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'job_id' => 'required',
         ]);
     }
 
@@ -72,7 +71,7 @@ class RegisterController extends Controller
             'nickname' => $data['nickname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'job_id' => $data['job_id'],
+            'job_id' => 1,
         ]);
 
         // dd($newUser->id);

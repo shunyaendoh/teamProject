@@ -74,18 +74,6 @@
                             </div>
                         </div>
 
-                        <!-- ここにjob_idを入れる -->
-                        <div class="form-group row">
-                            <label for="job_id" class="col-md-4 col-form-label text-md-right">{{ __('Job') }}</label>
-                            <div class="col-md-6">
-                                <select name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="register" required>
-                                @foreach ($jobs as $job)
-                                <option value=" {{ $job->id }} ">{{ $job->name }}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
