@@ -1,16 +1,8 @@
 #content {
-    width: 900px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 230px;
-    padding-bottom: 280px;
-}
-
-#content:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+    padding-bottom: 240px;
 }
 
 .profile-image {
