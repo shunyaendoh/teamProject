@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+    // .sass('resources/sass/app.scss', 'public/css')
     .scripts(['resources/assets/js/photopile.js'], 'public/js/photopile.js')
     .scripts(['resources/assets/js/photopile_wo_main.js'], 'public/js/photopile_wo_main.js')
     .copy(['node_modules/jquery-ui/ui/jquery-1-7.js'], 'resources/assets/js/jquery-ui.js')

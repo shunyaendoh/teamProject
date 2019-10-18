@@ -24,7 +24,7 @@
         <nav class="navbar navbar-light navbar-expand bg-dark d-flex justify-content-between">
             <div class="d-flex align-items-center">
                 @if(Auth::check())
-                <span><img src="/{{Auth::user()->profile->picture_path}}" alt="img" class="pt-2" style="width: 35px; border-radius: 50%;"></span>
+                <span><img src="/{{Auth::user()->profile->picture_path}}" alt="img" class="pt-2 profile-img"></span>
                 @endif
                 <span>
                     <a class="navbar-brand text-white px-3" href="{{ route('idea.index') }}">アイデア村</a>
@@ -76,20 +76,20 @@
     </main>
     @if(Auth::check())
     <div>
-        <div class="text-right mr-5">
+        <div>
             <a href="{{ route('idea.create') }}" class="btn-real-dent">
                 <i class="far fa-paper-plane"></i>
             </a>
         </div>
-        <div class="text-left mr-5">
-            <a href="{{ route('chat.index', ['user_id'                                               => Auth::user()->id]) }}" class="btn-real-dent-chat">
+        <div>
+            <a href="{{ route('chat.index', ['user_id' => Auth::user()->id]) }}" class="btn-real-dent-chat">
                 <i class="far fa-comment-dots"></i>
             </a>
         </div>
     </div>
     @endif
     <!-- ここからフッター -->
-    <footer class="text-center text-muted py-4">
+    <footer class="text-center text-muted pb-4">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Ideathon.com
         </div>

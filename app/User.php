@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -32,18 +31,22 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Profile', 'user_id');
     }
+
     public function job()
     {
         return $this->hasOne('App\Job');
     }
+
     public function ideas()
     {
         return $this->hasMany('App\Idea');
     }
+
     public function favorites()
     {
         return $this->belongsToMany('App\Idea', 'favorites');
     }
+
     public function chats()
     {
         return $this->hasMany('App\Chat');
