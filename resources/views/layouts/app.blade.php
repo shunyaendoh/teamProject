@@ -22,7 +22,14 @@
 <body>
     <header style="position: sticky; top: 0;">
         <nav class="navbar navbar-light navbar-expand bg-dark d-flex justify-content-between">
-                <a class="navbar-brand text-white px-3" href="http://127.0.0.1:8000/">アイデア村</a>
+            <div class="d-flex align-items-center">
+                @if(Auth::check())
+                <span><img src="/{{Auth::user()->profile->picture_path}}" alt="img" class="pt-2" style="width: 35px; border-radius: 50%;"></span>
+                @endif
+                <span>
+                    <a class="navbar-brand text-white px-3" href="{{ route('idea.index') }}">アイデア村</a>
+                </span>
+            </div>
           <div class="row">
                 <div id="menu" class="collapse">
                     <ul class="navbar-nav">
@@ -68,10 +75,17 @@
     @yield('content')
     </main>
     @if(Auth::check())
-    <div class="text-right mr-5">
-        <a href="{{ route('idea.create') }}" class="btn-real-dent">
-            <i class="far fa-paper-plane"></i>
-        </a>
+    <div>
+        <div class="text-right mr-5">
+            <a href="{{ route('idea.create') }}" class="btn-real-dent">
+                <i class="far fa-paper-plane"></i>
+            </a>
+        </div>
+        <div class="text-left mr-5">
+            <a href="{{ route('chat.index', ['user_id'                                               => Auth::user()->id]) }}" class="btn-real-dent-chat">
+                <i class="far fa-comment-dots"></i>
+            </a>
+        </div>
     </div>
     @endif
     <!-- ここからフッター -->

@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/idea/update/{idea}', 'IdeaController@update')->name('idea.update');
 
     // チャットページ
+    ROUTE::get('/chat/{user}', 'ChatController@index')->name('chat.index');              // チャット一覧( 自分のuer_id )
     ROUTE::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');              // 送信先のuser_id
     ROUTE::post('/chat/{user}/{chat}', 'ChatController@create')->name('chat.create');
     ROUTE::delete('/chat/{user}/{chat}', 'ChatController@delete')->name('chat.delete');
