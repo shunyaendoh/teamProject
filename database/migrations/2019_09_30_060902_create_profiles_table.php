@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nickname');
-            $table->integer('age');
+            $table->string('birth_of_date',8);
             $table->string('job');
             $table->string('locate');
             $table->string('comment');

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Profile;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -79,7 +80,7 @@ class RegisterController extends Controller
         Profile::create([
             'user_id' => $newUser->id,
             'nickname' => $data['nickname'],
-            'age' => 0,
+            'birth_of_date' => Carbon::now(),
             'job' => '',
             'locate' => '',
             'comment' => '',

@@ -60,38 +60,7 @@
                             <!-- ニックネーム表示 -->
                             <p class="name">{{$user->profile->nickname}}</p>
                             <!-- 年齢表示 -->
-                            @if ($user->profile->age < 20 && $user->profile->age >= 10)
-                                 <!-- 20歳未満は10代と表示 -->
-                                <p class="age">10代</p>
-                            @elseif ($user->profile->age < 30)
-                                 <!-- 30歳未満は20代と表示 -->
-                                <p class="age">20代</p>
-                            @elseif ($user->profile->age < 40)
-                                 <!-- 40歳未満は30代と表示 -->
-                                <p class="age">30代</p>
-                            @elseif ($user->profile->age < 50)
-                                 <!-- 50歳未満は40代と表示 -->
-                                <p class="age">40代</p>
-                            @elseif ($user->profile->age < 60)
-                                 <!-- 60歳未満は50代と表示 -->
-                                <p class="age">50代</p>
-                            @elseif ($user->profile->age < 70)
-                                 <!-- 70歳未満は60代と表示 -->
-                                <p class="age">60代</p>
-                            @elseif ($user->profile->age < 80)
-                                 <!-- 80歳未満は70代と表示 -->
-                                <p class="age">70代</p>
-                            @elseif ($user->profile->age == 0)
-                                 <!-- デフォルトで未設定 -->
-                                <p class="age">未設定</p>
-                            @elseif($user->profile->age < 10 && $user->profile->age > 0)
-                                <!-- 10歳以下は子どもと表示 -->
-                                <p class="age">子ども</p>
-                            @elseif($user->profile->age >= 80 )
-                                <!-- 80歳以上はご老人と表示 -->
-                                <p class="age">ご老人</p>
-                            @endif  
-                            
+                            <p class="age">{{ $user->profile->age }}</p>       
                         </div>
                         <div class="bottom">
                             <!-- フリーコメント表示 -->

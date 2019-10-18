@@ -17,7 +17,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 1,
             'nickname' => 'ふみ',
-            'age' => 20,
+            'birth_of_date' => '19981126',
             'job' => 'Pusher Master',
             'locate' => '千葉',
             'comment' => 'Java少し齧ってました！',
@@ -29,7 +29,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 2,
             'nickname' => '淳さん',
-            'age' => 20,
+            'birth_of_date' => '19981126',
             'job' => 'XD職人',
             'locate' => '千葉',
             'comment' => '最近カメラはじめした！',
@@ -41,7 +41,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 3,
             'nickname' => 'まほ',
-            'age' => 20,
+            'birth_of_date' => '19991024',
             'job' => 'Bootstrap使い',
             'locate' => '千葉',
             'comment' => '円周率いっぱい言えます！',
@@ -53,7 +53,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 4,
             'nickname' => 'エンちゃん',
-            'age' => 20,
+            'birth_of_date' => '19971215',
             'job' => 'Keynoter',
             'locate' => '千葉',
             'comment' => '日本語ペラペラです！',
