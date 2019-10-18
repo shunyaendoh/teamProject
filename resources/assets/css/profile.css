@@ -2,21 +2,21 @@
     margin: 0;
     background-color: rgba(181, 181, 181, 0.95);
     height: 85%;
-    border-radius: 13%;
+    border-radius: 5%;
 }
 
 .wrapper-male {
     margin: 0 auto;
     background-color: rgba(143, 171, 220, 0.95);
     height: 85%;
-    border-radius: 13%;
+    border-radius: 5%;
 }
 
 .wrapper-female {
     margin: 0 auto;
     background-color: rgba(225, 167, 167, 0.95);
     height: 85%;
-    border-radius: 13%;
+    border-radius: 5%;
 }
 
 .main {
@@ -152,5 +152,5 @@ a {
     background-color: rgb(242, 242, 242);
     height: 59%;
     overflow: scroll;
-    border-radius: 0 13% 13% 13%; 
+    border-radius: 0 5% 5% 5%; 
 }

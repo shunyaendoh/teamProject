@@ -37,7 +37,7 @@
                                     @endif
                                     @if(Auth::check() && Auth::user()->id == $user->id)
                                     <a href="{{route('profile.edit',['user_id' => $user->profile->user_id])}}"
-                                        class="edit">編集</a>
+                                        class="edit mt-2">編集</a>
                                     @endif
                                 </div>
 
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="bottom">
                                         <!-- フリーコメント表示 -->
-                                        <p class="comment">{{$user->profile->comment}}</p>
+                                        <p class="comment mt-3 ml-2">{{$user->profile->comment}}</p>
                                     </div>
                                 </div>
                             </div>
