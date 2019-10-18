@@ -2,11 +2,19 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/photopile.js": "/js/photopile.js",
+    "/js/photopile_wo_main.js": "/js/photopile_wo_main.js",
     "/resources/assets/js/jquery-ui.js": "/resources/assets/js/jquery-ui.js",
     "/js/jquery-ui.js": "/js/jquery-ui.js",
     "/css/jquery-ui.css": "/css/jquery-ui.css",
     "/css/photopile.css": "/css/photopile.css",
     "/css/index.css": "/css/index.css",
     "/js/jqfloat.js": "/js/jqfloat.js",
-    "/js/main.js": "/js/main.js"
+    "/js/main.js": "/js/main.js",
+    "/js/wo_main.js": "/js/wo_main.js",
+    "/js/wo_main2.js": "/js/wo_main2.js",
+    "/css/lightbox.css": "/css/lightbox.css",
+    "/js/lightbox.js": "/js/lightbox.js",
+    "/js/header.js": "/js/header.js",
+    "/js/profile.js": "/js/profile.js",
+    "/css/profile.css": "/css/profile.css"
 }

@@ -1,110 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-
-
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}" >
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+​
+    {{-- Scripts --}}
+    <script src="/js/app.js" defer></script>
+​
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <div id="app">
-
-
-        <header>
-            <div class="collapse bg-dark" id="navbarHeader">
-                <div class="container">
-
-                    <!-- Left Side Of Navbar -->
-=======
-    
-    <header>
-    
-        <div>
-
-        <nav class="navbar navbar-light navbar-expand bg-dark">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/">アイデア村</a>
+    <header style="position: sticky; top: 0;">
+        <nav class="navbar navbar-light navbar-expand bg-dark d-flex justify-content-between">
+            <div>
                 
+                <span class="mb-5">
+                    <a class="navbar-brand text-white px-3" href="{{ route('idea.index') }}">アイデア村</a>
+                </span>
+            </div>
+          <div class="row">
                 <div id="menu" class="collapse">
-<!-- 
->>>>>>> master
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav">
+                        @if(Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link" href="">ホームページ</a>
+                            <a class="nav-link text-white" href="{{ route('idea.index') }}">{{ __('ホーム') }}</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="">マイページ</a>
+                            <a class="nav-link text-white" href="{{ route('profile.index',['user_id' => Auth::user()->id]) }}">{{ __('マイページ') }}</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="">お問い合わせ</a>
+                            <a class="nav-link text-white" href="{{ route('about_us') }}">{{ __('お問い合わせ') }}</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="">ログアウト</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                                {{ __('ログアウト') }} 
+                                </a>
+                            @csrf
+                            </form>
                         </li>
-
-                    </ul> -->
-
-                    <div class="navbar navbar-dark bg-dark shadow-sm">
-                <div class="container d-flex justify-content-between">
-                    <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"
-                            class="mr-2" viewBox="0 0 24 24" focusable="false">
-                            <path
-                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                            <circle cx="12" cy="13" r="4" /></svg>
-                        <strong>
-                            {{ config('app.name', 'アイデア村') }}
-
-                        </strong>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                </div>   
-
-                <!-- <button class="navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu">
+                        @endif
+                        <!-- Authentication Links -->
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                        </li>
+                        </li>
+                        @endguest
+                    </ul>     
+                </div>            
+                <button class="navbar-toggler-right mx-3" type="button" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                     -->
-                    
+                </button>          
+            </div>              
             </nav>       
-
-        </div>
-
-
-
-
-
-
     </header>
+    <main class="py-4 container">
     @yield('content')
-
+    </main>
+    @if(Auth::check())
+    <div>
+        <div class="text-right mr-5">
+            <a href="{{ route('idea.create') }}" class="btn-real-dent">
+                <i class="far fa-paper-plane"></i>
+            </a>
+        </div>
+        <div class="text-left mr-5">
+            <a href="{{ route('chat.index', ['user_id'                                               => Auth::user()->id]) }}" class="btn-real-dent-chat">
+                <i class="far fa-comment-dots"></i>
+            </a>
+        </div>
+    </div>
+    @endif
     <!-- ここからフッター -->
     <footer class="text-center text-muted py-4">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Ideathon.com
-            <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> ◯◯◯</a> -->
         </div>
-
     </footer>
 </body>
 </html>
-
-

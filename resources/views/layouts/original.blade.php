@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,6 +21,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -30,7 +33,7 @@
             <div class="collapse bg-dark" id="navbarHeader">
                 <div class="container">
 
-                    <!-- Left Side Of Navbar -->
+                  <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
@@ -69,7 +72,7 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+            </div>  
             <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container d-flex justify-content-between">
                     <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
@@ -91,6 +94,15 @@
                 </div>
             </div>
         </header>
+
+
+
+
+
+
+
+
+
 
         <main class="py-4 container">
             @yield('content')

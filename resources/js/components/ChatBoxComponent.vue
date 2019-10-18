@@ -42,7 +42,7 @@ export default {
             const chatManager = new Chatkit.ChatManager({
                 instanceLocator: process.env.MIX_CHATKIT_INSTANCE_LOCATOR,
                 userId: this.userId,
-                tokenProvider,
+                tokenProvider:tokenProvider,
             });
             chatManager.connect()
                 .then(user => {

@@ -1,5 +1,8 @@
-@extends('layouts.app')
+<script src="/js/app.js" defer></script>
+{{-- app.cssの呼び出し --}}
+<link rel="stylesheet" href="/css/app.css">
 
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
