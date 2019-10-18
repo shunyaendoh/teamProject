@@ -1,75 +1,117 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>プロフィールの編集</h1>
+<form action="{{ route('profile.update', ['user_id' => $user->id]) }}" method="POST" name="$jobs" id="edit_profile" enctype="multipart/form-data">
+  <!-- formにidをつけてあげて、selectタグとつなげる時にform=で同じやつを書いて、繋げてあげる -->
 
-<form action="{{ route('profile.update',['user_id' => $user->id ])}}" method="POST" name="$jobs" id="edit_profile" enctype="multipart/form-data">
-@csrf
-@method('put')
-  <div class="row">
-    <div class="col">
-      <label for="nickname">ニックネーム：</label>
-      <input type="text" class="form-control" placeholder="nickname" name="nickname">
+  <!-- セキュリティのために必要 -->
+ @method('put')
+ @csrf
+
+ <div class="container my-3 p-3 col-6 bg-light">
+
+    <h1 class="text-center p-3">プロフィールの編集</h1>
+ 
+    <div class="row form-group col-5">
+        <label class="" for="nickname">{{ __('ニックネーム：') }}</label>
+        <input class="form-control" id="title" type="text" name="nickname" value="{{old('nickname', $user->profile->nickname)}}">
     </div>
-  </div>
 
 
-<select class="custom-select" form="edit_profile" name="age">
-  <option selected>年齢</option>
-  @for($i = 0; $i < 100; $i++)
-  <option value="{{$i}}">{{$i}}</option>
-  @endfor
-</select>
-  
-
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="0" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    未設定
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="1">
-  <label class="form-check-label" for="exampleRadios2">
-    男性
-  </label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="2">
-  <label class="form-check-label" for="exampleRadios3">
-    女性
-  </label>
-</div>
-
-  <div class="form-row">
-    <div class="col-7">
-      <input type="text" class="form-control" placeholder="locate" name="locate">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="comment" name="comment">
-    </div>
-  </div>
+    <fieldset class="">
+  <label class="row">{{ __('生年月日：') }}</label>
+    <input class="col-3" type="number" name="year" id="year" placeholder="YYYY" 　size="8" maxlength="4">
+     年
+    <input class="col-2" type="number" name="month" id="month" placeholder="MM" size="4" maxlength="2">
+    月
+    <input class="col-2" type="number" name="day" id="day" placeholder="DD" size="4" maxlength="2">
+    日
+    </fieldset>
 
 
-  <div class="form-row">
-      <div class="col">
-          <input type="text" class="form-control" placeholder="job"" name="job">
+    
+
+    <!-- <div class="row">
+    {{ __('年齢：') }}
+        <select class="custom-select col-3" form="edit_profile" name="age">
+            <option selected>{{ __('未選択') }}</option>
+            @for($i = 15; $i < 100; $i++)
+            <option value="{{$i}}">{{$i}}</option>
+            @endfor
+        </select>
+    </div> -->
+
+
+    <div class="py-3">
+        <div class="form-check my-1">
+        <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="0">
+        <label class="form-check-label" for="exampleRadios1">
+        {{ __('未設定') }}
+        </label>
         </div>
-  </div>
+        <div class="form-check my-1">
+        <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="1">
+        <label class="form-check-label" for="exampleRadios2">
+        {{ __('男性') }}
+        </label>
+        </div>
 
-   <div class="form-group row">
-        <label for="picture" class="col-md-4 col-form-label text-md-right">写真</label>
+        <div class="form-check my-1">
+        <input class="form-check-input" type="radio" name="gender" id="exampleRadios3" value="2">
+        <label class="form-check-label" for="exampleRadios3">
+        {{ __('女性') }}
+        </label>
+        </div>
+    </div>
+
+    <div class="row form-group col-5">
+        <label for="locate">{{ __('出身地：') }}</label>
+        <input class="form-control" type="text" name="locate" value="{{old('locate', $user->profile->locate)}}">
+    </div>
+
+    <div class="row form-group col-5">
+        <label for="locate">{{ __('職業：') }}</label>
+        <input class="form-control" type="text" name="job" value="{{old('job', $user->profile->job)}}">
+    </div>
+
+    <div class="row form-group">
+        <label for="body">{{ __('コメント：') }}</label>
+        <textarea class="body" id="comment" name="comment">{{old('comment', $user->profile->comment)}}</textarea>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール画像：') }}</label>
 ​
-        <div class="col-md-6">
-            <input id="picture" type="file" name="picture" class="form-control{{ $errors->has('picture_path') ? ' is-invalid' : '' }}">
+        <div class="col-8">
+            <input id="picture" type="file" name="picture" class="form-control{{ $errors->has('picture_path') ? ' is-invalid' : '' }}" value="">
         </div>
     </div>
 
-  <button type="submit" class="btn btn-dark">送信</button>
+
+    <div class="text-center text-md-right p-3">
+        <input class="shadow btn-dark btn-lg" type="submit" value="更新">
+    </div>
+    
+    
+
+
+
+
+
+</div>
+
 </form>
+@endsection
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
-
-@endsection
