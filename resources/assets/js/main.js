@@ -213,3 +213,6 @@ $(document).on('click', '.js-dislike', function () {
         });
   }
   
+$(document).ready(function() {
+    $('.hello-user-text').fadeIn('slow');
+});

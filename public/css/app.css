@@ -4813,7 +4813,7 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
 }
 
 .navbar > .container,
@@ -4836,7 +4836,7 @@ input[type="button"].btn-block {
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
   margin-right: 1rem;
-  font-size: 1.125rem;
+  font-size: 1.13rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -6811,6 +6811,7 @@ a.close.disabled {
   display: block;
   margin: 0;
   font-family: "Nunito", sans-serif;
+  /* font-family: "M PLUS Rounded 1c", sans-serif; */
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;

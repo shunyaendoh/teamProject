@@ -11,7 +11,6 @@ use \Auth;
 
 class IdeaController extends Controller
 {
-    
     public function index()
     {
         $user = Auth::user();
@@ -79,6 +78,6 @@ class IdeaController extends Controller
             abort(403);
            }
 
-        return redirect()->route('idea.index');
+        return redirect()->route('profile.index', ['user_id' => Auth::user()->id]);
     }
 }

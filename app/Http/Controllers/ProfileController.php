@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditProfile;
 use Illuminate\Http\Request;
 
 use App\Profile;
@@ -73,6 +74,9 @@ class ProfileController extends Controller
           
     public function edit(User $user)
     {
+        if(Auth::user()->id != $user->id) {
+            abort(403);
+        }
         $jobs = Job::all();
         return view('profiles.edit',[
             'jobs' => $jobs,
@@ -80,10 +84,9 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(EditProfile $request)
     {
-        $filtered_bod = strval($request->year) . str_pad(strval($request->month), 2, '0', STR_PAD_LEFT) . str_pad(strval($request->date), 2, '0', STR_PAD_LEFT);
-        $imgPath = $this->saveProfilePicture($request->file('picture'));
+        $filtered_bod = strval($request->year) . str_pad(strval($request->month), 2, '0', STR_PAD_LEFT) . str_pad(strval($request->day), 2, '0', STR_PAD_LEFT);
         $profile = Profile::find(Auth::user()->id);
         $profile->nickname = $request->nickname;
         $profile->birth_of_date = $filtered_bod;
@@ -91,7 +94,12 @@ class ProfileController extends Controller
         $profile->locate = $request->locate;
         $profile->comment = $request->comment;
         $profile->gender = $request->gender;
-        $profile->picture_path = $imgPath;
+        if($request->picture) {
+            $imgPath = $this->saveProfilePicture($request->file('picture'));
+            $profile->picture_path = $imgPath;
+        }else {
+            $profile->picture_path = 'storage/images/profilePicture/defaultPicture.jpg';
+        }
         $profile->save();
 
         return redirect()->route('profile.index',[

@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500&display=swap" rel="stylesheet">
 
     {{-- Scripts --}}
     <script src="/js/app.js" defer></script>
@@ -17,22 +18,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 </head>
 <body>
     <header style="position: sticky; top: 0;">
         <nav class="navbar navbar-light navbar-expand bg-dark d-flex justify-content-between">
             <div class="d-flex align-items-center">
                 @if(Auth::check())
-                <span><img src="/{{Auth::user()->profile->picture_path}}" alt="img" class="pt-2 profile-img"></span>
+                <span><a href="{{ route('profile.index', ['user_id' => Auth::user()->id]) }}"><img src="/{{Auth::user()->profile->picture_path}}" alt="img" class="pt-2 profile-img"></a></span>
                 @endif
                 <span>
-                    <a class="navbar-brand text-white px-3" href="{{ route('idea.index') }}">アイデア村</a>
+                    <a class="navbar-brand text-white px-3" href="{{ route('idea.index') }}"><i class="far fa-lightbulb h3"></i>  アイデア村</a>
                 </span>
             </div>
           <div class="row">
                 <div id="menu" class="collapse">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav d-flex align-items-center">
                         @if(Auth::check())
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('idea.index') }}">{{ __('ホーム') }}</a>
@@ -46,7 +46,8 @@
                         <li class="nav-item">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
+                                 document.getElementById('logout-form').submit();"
+                                 style="margin-top: 0.9rem;">
                                 {{ __('ログアウト') }} 
                                 </a>
                             @csrf

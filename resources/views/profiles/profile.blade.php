@@ -44,27 +44,27 @@
                                 <div class="right">
                                     <div class="top">
                                         <!-- 居住地を表示 -->
-                                        <p class="place">{{$user->profile->locate}}</p>
+                                        <p class="place h4">{{$user->profile->locate}}</p>
                                         <!-- 職業を表示 -->
-                                        <p class="job">{{$user->profile->job}}</p>
-                                        <!-- 性別を表示 -->
-                                        @if ($user->profile->gender == 0)
-                                        <!-- genderが1だった場合は未設定 -->
-                                        <p class="gender">未設定</p>
-                                        @elseif ($user->profile->gender == 1)
-                                        <!-- genderが2だった場合は男 -->
-                                        <p class="gender">男性</p>
-                                        @elseif ($user->profile->gender == 2)
-                                        <!-- genderが2だった場合は女 -->
-                                        <p class="gender">女性</p>
-                                        @endif
+                                        <p class="job h4">{{$user->profile->job}}</p>
 
                                     </div>
                                     <div class="middle">
                                         <!-- ニックネーム表示 -->
                                         <p class="name">{{$user->profile->nickname}}</p>
+                                        <!-- 性別を表示 -->
+                                        @if ($user->profile->gender == 0)
+                                        <!-- genderが1だった場合は未設定 -->
+                                        <p class="gender">未設定  <i class="far fa-question-circle h5"></i></p>
+                                        @elseif ($user->profile->gender == 1)
+                                        <!-- genderが2だった場合は男 -->
+                                        <p class="gender">男性  <i class="fas fa-male h5"></i></p>
+                                        @elseif ($user->profile->gender == 2)
+                                        <!-- genderが2だった場合は女 -->
+                                        <p class="gender">女性  <i class="fas fa-female h5"></i></p>
+                                        @endif
                                         <!-- 年齢表示 -->
-                                        <p class="age">{{ $user->profile->age }}</p>
+                                        <p class="age">( {{ $user->profile->age }} )</p>
                                     </div>
                                     <div class="bottom">
                                         <!-- フリーコメント表示 -->

@@ -17,7 +17,7 @@
         @if($errors->any())
         <ul>
             @foreach($errors->all() as $message)
-            <li class = "alert alert-danger">
+            <li class = "alert alert-danger" style="list-style: none;">
                 {{$message}}
             </li>
                 @endforeach 
@@ -49,7 +49,6 @@
 
     <div class="text-center text-md-right p-3">
         <input class="shadow btn-dark btn-lg" type="submit" value="更新">
-        <!-- <input type="reset" value="リセット"> -->
     </div>
     
 </div>

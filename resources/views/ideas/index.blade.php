@@ -7,6 +7,10 @@
 
     @extends('layouts.app')
     @section('content')
+    <div class="h2 my-5 mr-5 py-4 hello-user">
+        <p class="text-center hello-user-text">こんにちは{{ Auth::user()->profile->nickname }}さん！</p>
+        <p class="text-center hello-user-text">みんなのアイデアをみてみよう！</p>
+    </div>
     <div id="content" class="container bg-light">
         <div class="photopile_wrapper">
             <ul class="photopile">
