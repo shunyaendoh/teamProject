@@ -21,8 +21,7 @@
   } */
 
   
-.shadow.btn-primary.btn-lg:active {
-    
+.shadow.btn-primary.btn-lg:active {   
     /*ボタンを押したとき*/
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
