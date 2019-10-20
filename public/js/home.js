@@ -6,14 +6,15 @@ function scrollPaubos(){
 }
 
 // when choosing a user to message
-function openChatBox(user, authUser){
+function openChatBox(user, authUser, profile){
     $('#messageThread').html('<h1 class="text-center"> Loading. . .');
 
     $('#default_card').hide();
     $('#active_card').show();
     var who = document.getElementById('chatWithName');
     var inputWhoId = document.getElementById('convo_id');
-    who.innerHTML = user.name;
+    who.innerHTML = profile.nickname;
+    console.log(user);
 
     //Check if the conversation exist in database. Create if not
     $.ajax({

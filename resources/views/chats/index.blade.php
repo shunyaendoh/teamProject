@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($users as $row)
-                        <a href="javascript:;" onclick="openChatBox({{$row}},{{Auth::user()->id}});" class="list-group-item list-group-action-item"> 
+                        <a href="javascript:;" onclick="openChatBox({{$row}},{{Auth::user()->id}},{{$row->profile}});" class="list-group-item list-group-action-item"> 
                             <div class="d-flex" style="border:0px solid red">
                                 <span id="{{ $row->username }}"> {{ $row->profile->nickname }} </span>
                                 <span class="ml-auto text-muted @if($row->status == 0) redDot @else greenDot @endif"> @if($row->status == 0) Offline @else Online @endif
@@ -55,7 +55,7 @@
                         <div style="display:block;">
                         <input type="hidden" id="convo_id" name="convo_id" required>
                         <input class="form-control m-0" name="message" id="messsageInput" rows="3" required>
-                        <button type="submit" class="btn btn-primary" id="sendMsgBtn">送信</button>
+                        <button type="submit" class="btn btn-primary mb-3" id="sendMsgBtn">送信</button>
                         </div>
                     </form>
                 </div>
