@@ -11,9 +11,9 @@
  @csrf
 
  
- <div class="container my-3 p-3 col-5 bg-light">
+ <div class="container py-3 col-5 bg-light">
 
-    <h4 class="text-center p-3 h1">Share your idea!</h4>
+    <h4 class="text-center p-2 h1">Share your idea!</h4>
 
         @if($errors->any())
         <ul>
@@ -53,7 +53,7 @@
 
 
 
-    <div class="text-center text-md-right p-3">
+    <div class="text-center text-md-right p-2">
         <input class="shadow btn-dark btn-lg" type="submit" value="投稿">
         <!-- <input type="reset" value="リセット"> -->
     </div>

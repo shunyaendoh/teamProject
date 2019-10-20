@@ -2,15 +2,12 @@
 @section('content')
 
 <form action="{{ route('idea.update', ['idea' => $idea->id]) }}" method="POST" name="idea_post" id="post_idea">
-  <!-- formにidをつけてあげて、selectタグとつなげる時にform=で同じやつを書いて、繋げてあげる -->
-
-  <!-- セキュリティのために必要 -->
  @method('put')
  @csrf
 
  <link rel="stylesheet" href="{{ asset('css/idea_create_edit.css') }}">
  
- <div class="container my-3 p-3 col-5 bg-light">
+ <div class="container py-3 col-5 bg-light">
 
     <h4 class="text-center p-3 h1">Edit your idea!</h4>
 
@@ -47,9 +44,9 @@
         <textarea class="body p-3" id="body" name="body" placeholder="アイデアについて詳しく書いて下さい。">{{old('body', $idea->body)}}</textarea>
     </div>
 
-    <div class="text-center text-md-right p-3">
+    <div class="text-center text-md-right p-2">
         <input class="shadow btn-dark btn-lg" type="submit" value="更新">
-    </div>
+   </div>
     
 </div>
 

@@ -1,0 +1,12 @@
+.shadow.btn-dark.btn-lg {
+/*ボタンを押したとき*/
+-webkit-transform: translateY(4px);
+transform: translateY(4px);/*下に動く*/
+border-bottom: none;/*線を消す*/
+}
+
+
+#comment {
+    width: 380px;
+    height: 200px;
+    resize: none;
