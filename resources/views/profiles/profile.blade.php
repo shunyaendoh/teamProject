@@ -37,7 +37,7 @@
                                     @endif
                                     @if(Auth::check() && Auth::user()->id == $user->id)
                                     <a href="{{route('profile.edit',['user_id' => $user->profile->user_id])}}"
-                                        class="edit mt-2">編集</a>
+                                        class="edit mt-2 pl-1">編集</a>
                                     @endif
                                 </div>
 
