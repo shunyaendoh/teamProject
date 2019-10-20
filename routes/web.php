@@ -50,3 +50,10 @@ Auth::routes();
 // テスト用
 
 Route::view('/main', 'app.profile_edit');
+
+Route::get('/checkConvo/{receiverId}', 'MessageUserController@check');
+Route::post('/sendMessage', 'MessageController@store')->name('sendMessage');
+
+Route::get('/loadMessage/{receiver}/{sender}', 'MessageController@load');
+
+Route::get('/retrieveMessages/{receiver}/{sender}/{lastMsgId}','MessageController@retrieveNew');

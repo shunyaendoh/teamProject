@@ -75,12 +75,14 @@ class RegisterController extends Controller
             'job_id' => 1,
         ]);
 
-        // dd($newUser->id);
+        $dt = Carbon::now();
+        $dt = substr($dt, 0, 10);
+        $dt = str_replace('-', '', $dt);
 
         Profile::create([
             'user_id' => $newUser->id,
             'nickname' => $data['nickname'],
-            'birth_of_date' => Carbon::now(),
+            'birth_of_date' => $dt,
             'job' => '',
             'locate' => '',
             'comment' => '',
@@ -88,23 +90,5 @@ class RegisterController extends Controller
         ]);
 
         return $newUser;
-
-        // return [
-        //     User::create([
-        //         'name' => $data['name'],
-        //         'nickname' => $data['nickname'],
-        //         'email' => $data['email'],
-        //         'password' => Hash::make($data['password']),
-        //         'job_id' => $data['job_id'],
-        //     ]),
-        //     Profile::create([
-        //         'nickname' => $data['nickname'],
-        //         'age' => 0,
-        //         'job' => '',
-        //         'locate' => '',
-        //         'comment' => '',
-        //         'gender' => 0,
-        //     ])
-        // ];
     }
 }

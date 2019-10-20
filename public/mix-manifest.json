@@ -17,5 +17,7 @@
     "/js/lightbox.js": "/js/lightbox.js",
     "/js/header.js": "/js/header.js",
     "/js/profile.js": "/js/profile.js",
-    "/css/profile.css": "/css/profile.css"
+    "/css/profile.css": "/css/profile.css",
+    "/js/home.js": "/js/home.js",
+    "/css/home.css": "/css/home.css"
 }
