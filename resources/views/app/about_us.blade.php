@@ -4,8 +4,25 @@
 @section('content')
 <div class="container bg-light">
     <div class="justify-content-center" style="margin: 4rem 14rem;">
-        <div class="p-3 mb-2 bg-dark text-white h1">About us</div>
+        <div class="p-3 mb-2 bg-dark text-white h2 text-center">About us</div>
+        <div class="border mb-3">
+          <div class="p-3 mb-2 text-dark text-center">
+            <p>
+              アイデア村/Ideathonは「起業したいけどビジネスパートナーがいない！」といった悩みを解決するサービスです。
+            </p>
+            <p>
+              私たちは "アイデアを通して人と人をつなげる"をモットーに掲げています。
+            </p>
+            <p>
+              もしあなたが私たちにコメントを残したいなら、下記のコンタクトフォームを利用してください。
+            </p>
+            <p>
+              また、あなたがデベロッパーであるなら<a href="https://github.com/shunyaendoh/teamProject">こちら</a>からGitHubのレポジトリにアクセスできます。
+            </p>
+            </div>
+        </div>
 
+        <div class="p-3 mb-2 bg-dark text-white h2 text-center">Contact form</div>
         <form action="/form.php" method="post">
              <div class="form-group">
             <label for="inputAddress">お名前</label>
