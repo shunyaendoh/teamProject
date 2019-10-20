@@ -44,9 +44,9 @@ function openChatBox(user, authUser){
                 //console.log();
                 while(response[0][i]!=null){
                     if(response[1][0] == response[0][i].message_users_id ){
-                        $('#messageThread').append('<div class="p-2 d-flex"><div class="p-2 receiverBox ml-auto"><p>'+response[0][i].message +'</p></div></div>');
+                        $('#messageThread').append('<div class="p-2 d-flex"><div class="px-2 pt-2 pb-0 receiverBox ml-auto"><p>'+response[0][i].message +'</p></div></div>');
                     }else{
-                        $('#messageThread').append('<div class="p-2 d-flex"><div class="p-2 float-left senderBox"><p>'+response[0][i].message +'</p></div></div>');
+                        $('#messageThread').append('<div class="p-2 d-flex"><div class="px-2 pt-2 pb-0 float-left senderBox"><p>'+response[0][i].message +'</p></div></div>');
                     }
                     lastMessageId = response[0][i].id + 1;
                     i++;

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use \Auth;
 class ChatController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('id', '!=', Auth::user()->id)->get();
+        
         return view('chats.index', [
             'users' => $users
         ]);

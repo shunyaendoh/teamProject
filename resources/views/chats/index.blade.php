@@ -1,9 +1,8 @@
-@extends('layouts.app')
-
 <script src="{{ asset('js/jquery_v3.4.1/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('js/home.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -35,7 +34,7 @@
             <div class="card">
                 <div class="card-header"> Choose a conversation</div>
                 <div class="card-body">
-                    <h1 class="text-primary"> Please choose a user to message.</h1>
+                    <h1 class="text-primary"> ユーザーを選択してください。</h1>
                 </div>
             </div>
         </div>
@@ -46,7 +45,7 @@
                 <div class="card-header" id="chatWithName">(Name of Selected User)</div>
 
                 <div class="card-body messageThread" id="messageThread">
-                    {{-- <h1 id="loadingMessages">Loading . . .</h1> --}}
+                    <h1 id="loadingMessages">Loading . . .</h1>
                 </div>
 
                 <div class="card-body p-0 m-0" style="border:0px solid black">
@@ -56,7 +55,7 @@
                         <div style="display:block;">
                         <input type="hidden" id="convo_id" name="convo_id" required>
                         <input class="form-control m-0" name="message" id="messsageInput" rows="3" required>
-                        <button type="submit" class="btn btn-primary" id="sendMsgBtn">Send</button>
+                        <button type="submit" class="btn btn-primary" id="sendMsgBtn">送信</button>
                         </div>
                     </form>
                 </div>
