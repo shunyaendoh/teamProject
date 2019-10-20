@@ -31,4 +31,5 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts(['resources/assets/js/header.js'], 'public/js/header.js')
     .scripts(['resources/assets/js/profile.js'], 'public/js/profile.js')
     .copy(['resources/assets/css/profile.css'], 'public/css/profile.css')
-
+    .scripts(['resources/assets/js/home.js'], 'public/js/home.js')
+    .copy(['resources/assets/css/home.css'], 'public/css/home.css')

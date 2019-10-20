@@ -23,7 +23,7 @@ class IdeaController extends Controller
         
         return view('ideas.index', [
             'ideas' => $ideas,
-            'user' => $user
+            'user' => $user,
         ]);
     }
     
