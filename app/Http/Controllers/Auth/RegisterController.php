@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Profile;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -54,7 +55,6 @@ class RegisterController extends Controller
             'nickname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'job_id' => 'required',
         ]);
     }
 
@@ -72,40 +72,23 @@ class RegisterController extends Controller
             'nickname' => $data['nickname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'job_id' => $data['job_id'],
+            'job_id' => 1,
         ]);
 
-        // dd($newUser->id);
+        $dt = Carbon::now();
+        $dt = substr($dt, 0, 10);
+        $dt = str_replace('-', '', $dt);
 
         Profile::create([
             'user_id' => $newUser->id,
             'nickname' => $data['nickname'],
-            'age' => 0,
+            'birth_of_date' => $dt,
             'job' => '',
             'locate' => '',
             'comment' => '',
             'gender' => 0,
-            'picture_path' => '',
         ]);
 
         return $newUser;
-
-        // return [
-        //     User::create([
-        //         'name' => $data['name'],
-        //         'nickname' => $data['nickname'],
-        //         'email' => $data['email'],
-        //         'password' => Hash::make($data['password']),
-        //         'job_id' => $data['job_id'],
-        //     ]),
-        //     Profile::create([
-        //         'nickname' => $data['nickname'],
-        //         'age' => 0,
-        //         'job' => '',
-        //         'locate' => '',
-        //         'comment' => '',
-        //         'gender' => 0,
-        //     ])
-        // ];
     }
 }

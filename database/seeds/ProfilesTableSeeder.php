@@ -14,14 +14,11 @@ class ProfilesTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
-        $user2 = User::where('id', 2)->first();
-
         DB::table('profiles')->insert([
-            'user_id' => $user->id,
-            'nickname' => 'fumie',
-            'age' => 26,
-            'job' => 'Java職人',
+            'user_id' => 1,
+            'nickname' => 'ふみ',
+            'birth_of_date' => '19981124',
+            'job' => 'Pusher Master',
             'locate' => '千葉',
             'comment' => 'Java少し齧ってました！',
             'gender' => 1,
@@ -30,14 +27,38 @@ class ProfilesTableSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
         DB::table('profiles')->insert([
-            'user_id' => $user2->id,
-            'nickname' => '筋肉',
-            'age' => 20,
+            'user_id' => 2,
+            'nickname' => '淳さん',
+            'birth_of_date' => '19890601',
             'job' => 'XD職人',
-            'locate' => '千葉',
-            'comment' => 'デング熱によくかかります！',
+            'locate' => '東京',
+            'comment' => '最近カメラはじめした！',
             'gender' => 1,
-            'picture_path' => 'storage/images/profilePicture/IMG_0024.jpg',
+            'picture_path' => 'storage/images/profilePicture/defaultPicture.jpg',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('profiles')->insert([
+            'user_id' => 3,
+            'nickname' => 'まほ',
+            'birth_of_date' => '19991026',
+            'job' => 'Bootstrap使い',
+            'locate' => '滋賀',
+            'comment' => '円周率いっぱい言えます！',
+            'gender' => 2,
+            'picture_path' => 'storage/images/profilePicture/defaultPicture.jpg',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        DB::table('profiles')->insert([
+            'user_id' => 4,
+            'nickname' => 'エンちゃん',
+            'birth_of_date' => '19971215',
+            'job' => 'Keynoter',
+            'locate' => '東京',
+            'comment' => '日本語ペラペラです！',
+            'gender' => 1,
+            'picture_path' => 'storage/images/profilePicture/defaultPicture.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

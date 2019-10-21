@@ -7,12 +7,8 @@ $('.idea').on('click', function() {
   var body = $(this).attr("body");
   var createdAt = $(this).attr("created-at");
   var picturePath = $(this).attr("picture-path");
-  console.log(id);
-  console.log(userId);
-  console.log(jobId);
-  console.log(title);
-  console.log(body);
-  console.log(createdAt);
+  var user = $(this).attr("user");
+  var profile = $(this).attr("profile");
   if(jobId == 1) {
       $("#modalBack").removeClass("bg-secondary");
       $("#modalBack").removeClass("bg-success");
@@ -23,8 +19,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-primary");
   } else if(jobId == 2) {
@@ -37,8 +35,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-secondary");
+      $("#button-chat2").removeClass("btn-secondary");
 
       $("#button-edit").addClass("btn-light");
+      $("#button-chat2").addClass("btn-light");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-secondary");
   } else if(jobId == 3) {
@@ -51,8 +51,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-success");
   } else if(jobId == 4) {
@@ -65,8 +67,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-danger");
   } else if(jobId == 5) {
@@ -79,8 +83,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-light");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-dark");
       $("#modalBack").addClass("bg-warning");
   } else if(jobId == 6) {
@@ -93,8 +99,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-info");
   } else if(jobId == 7) {
@@ -107,8 +115,10 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-dark");
       $("#modalBack").removeClass("text-light");
       $("#button-edit").removeClass("btn-light");
+      $("#button-chat2").removeClass("btn-light");
 
       $("#button-edit").addClass("btn-secondary");
+      $("#button-chat2").addClass("btn-secondary");
       $("#modalBack").addClass("text-dark");
       $("#modalBack").addClass("bg-light");
   } else {
@@ -121,15 +131,32 @@ $('.idea').on('click', function() {
       $("#modalBack").removeClass("bg-light");
       $("#modalBack").removeClass("text-dark");
       $("#button-edit").removeClass("btn-secondary");
+      $("#button-chat2").removeClass("btn-secondary");
 
       $("#button-edit").addClass("btn-light");
+      $("#button-chat2").addClass("btn-light");
       $("#modalBack").addClass("text-light");
       $("#modalBack").addClass("bg-dark");
   }
 
   $('.idea-id').val(id);
   $('.modal-body').html(`<div><p class="h2">${body}</p><p class="display-5 created-at">${createdAt}</p></div>`);
-  $('.modal-title').html(`<div style="display:flex;"><a href="profile/${userId}"><img src="/${picturePath}" class="profile-image"></a><div class="ml-4"><p>${nickname}</p><h2>${title}</h2></<h2></div>`);
+  $('.modal-title').html(`<div style="display:flex;"><a href="/profile/${userId}"><img src="/${picturePath}" class="profile-image"></a><div class="ml-4"><p>${nickname}</p><h2>${title}</h2></<h2></div>`);
   $('#button-edit').attr('onclick',`location.href='/idea/edit/${id}/'`);
-  $('#button-chat').attr('onclick',`location.href='/chat/${userId}/1'`);
+  $('.button-chat').attr('onclick', `openChatBox(${user},${id},${profile});`);
+  $('.button-chat').on('click', function () { 
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          method: 'GET',
+          url: '/checkConvo/'+ userId,
+          success: function(response){
+              inputWhoId.value = response;
+          },
+          error: function(response){
+          }
+      });
+      window.location.href = `/chat/${id}`;
+  });
 });

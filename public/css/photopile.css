@@ -119,6 +119,7 @@ ul.photopile li a img {
 /* Photo container */
 div#photopile-active-image-container {
     border: 1px solid #6F6F6F;
+    opacity: 0;
     box-shadow: 0 20px 80px black;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -144,7 +145,7 @@ div#photopile-active-image-info p {
 }
 
 /* Navigator */
-div#photopile-nav-next,
+/* div#photopile-nav-next,
 div#photopile-nav-prev {
     opacity: 0;
     position: absolute;
@@ -153,7 +154,7 @@ div#photopile-nav-prev {
     height: 40px;
     margin-top: -20px;
     cursor: pointer;
-}
+} */
 
 div#photopile-nav-next {
     right: 0;

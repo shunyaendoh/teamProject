@@ -1,6 +1,3 @@
-<script src="/js/app.js" defer></script>
-{{-- app.cssの呼び出し --}}
-<link rel="stylesheet" href="/css/app.css">
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -55,7 +52,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Login') }}
                                 </button>
 

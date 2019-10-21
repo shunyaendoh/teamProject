@@ -17,20 +17,39 @@ class UserTableSeeder extends Seeder
         $job = Job::first();
         DB::table('users')->insert(
             [
-                'name'       => 'fumi',
-                'email'      => 'fumi_is_fuma@gmail.com',
-                'password'   => bcrypt('fumifumi'),
+                'name'       => '高倉 楓麻',
+                'email'      => 'fuma@email.com',
+                'password'   => bcrypt('fumafuma'),
                 'job_id'     => $job->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
-
         DB::table('users')->insert(
             [
-                'name'       => 'fuma',
-                'email'      => 'fuma_is_fumi@gmail.com',
-                'password'   => bcrypt('fumafuma'),
+                'name'       => '島田 淳一',
+                'email'      => 'jun1@email.com',
+                'password'   => bcrypt('junjun'),
+                'job_id'     => $job->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        );
+        DB::table('users')->insert(
+            [
+                'name'       => '家田 真帆',
+                'email'      => 'maho@email.com',
+                'password'   => bcrypt('mahomaho'),
+                'job_id'     => $job->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        );
+        DB::table('users')->insert(
+            [
+                'name'       => '遠藤 駿也',
+                'email'      => 'shun@email.com',
+                'password'   => bcrypt('shunshun'),
                 'job_id'     => $job->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

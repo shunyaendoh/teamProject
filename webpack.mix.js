@@ -12,14 +12,16 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+    // .sass('resources/sass/app.scss', 'public/css')
     .scripts(['resources/assets/js/photopile.js'], 'public/js/photopile.js')
     .scripts(['resources/assets/js/photopile_wo_main.js'], 'public/js/photopile_wo_main.js')
     .copy(['node_modules/jquery-ui/ui/jquery-1-7.js'], 'resources/assets/js/jquery-ui.js')
     .scripts(['resources/assets/js/jquery-ui.js'], 'public/js/jquery-ui.js')
     .copy(['node_modules/jquery-ui/themes/base/all.css'], 'public/css/jquery-ui.css')
     .copy(['resources/assets/css/photopile.css'], 'public/css/photopile.css')
+    .copy(['resources/assets/css/photopile_profile.css'], 'public/css/photopile_profile.css')
     .copy(['resources/assets/css/index.css'], 'public/css/index.css')
+    .copy(['resources/assets/css/main.css'], 'public/css/main.css')
     .scripts(['resources/assets/js/jqfloat.js'], 'public/js/jqfloat.js')
     .scripts(['resources/assets/js/main.js'], 'public/js/main.js')
     .scripts(['resources/assets/js/wo_main.js'], 'public/js/wo_main.js')
@@ -29,4 +31,9 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts(['resources/assets/js/header.js'], 'public/js/header.js')
     .scripts(['resources/assets/js/profile.js'], 'public/js/profile.js')
     .copy(['resources/assets/css/profile.css'], 'public/css/profile.css')
+    .scripts(['resources/assets/js/home.js'], 'public/js/home.js')
+    .copy(['resources/assets/css/home.css'], 'public/css/home.css')
+    .copy(['resources/assets/css/idea_create_edit.css'], 'public/css/idea_create_edit.css')
+    .copy(['resources/assets/css/profile_create_edit.css'], 'public/css/profile_create_edit.css');
+
 
