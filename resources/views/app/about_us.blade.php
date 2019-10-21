@@ -23,19 +23,20 @@
         </div>
 
         <div class="p-3 mb-2 bg-dark text-white h2 text-center">Contact form</div>
-        <form action="/form.php" method="post">
+        <form action="{{ route('contact.complete')}}" method="post">
+        @csrf
              <div class="form-group">
             <label for="inputAddress">お名前</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Name">
+            <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
           </div>
             <div class="form-group">
               <label for="inputEmail4">メールアドレス</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
             </div>
          
             <div class="mb-3">
             <label for="validationTextarea">お問い合わせ内容</label>
-            <textarea class="form-control" id="validationTextarea" placeholder="Message" required></textarea>
+            <textarea class="form-control" id="validationTextarea" placeholder="Message" name="body" required></textarea>
             <div class="invalid-feedback">
               Please send us a message
             </div>

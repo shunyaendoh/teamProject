@@ -32,6 +32,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/about_us', function () {
         return view('app.about_us');
     })->name('about_us');
+
+    Route::post('/thankyou', 'ContactController@complete')->name('contact.complete');
+
+
 });
 
 Auth::routes();
