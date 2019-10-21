@@ -97,8 +97,8 @@ class ProfileController extends Controller
         if($request->picture) {
             $imgPath = $this->saveProfilePicture($request->file('picture'));
             $profile->picture_path = $imgPath;
-        }else {
-            $profile->picture_path = 'storage/images/profilePicture/defaultPicture.jpg';
+        // }else {
+        //     $profile->picture_path = 'storage/images/profilePicture/defaultPicture.jpg';
         }
         $profile->save();
 

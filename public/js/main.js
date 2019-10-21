@@ -217,3 +217,17 @@ $(document).on('click', '.js-dislike', function () {
 $(document).ready(function() {
     $('.hello-user-text').fadeIn('slow');
 });
+
+nickname = $('.hello-user').attr('user');
+console.log(nickname);
+
+
+helloList = [
+    `こんにちは！${nickname}さん！`,
+    `よっ！${nickname}！`,
+    `ハロー！${nickname}！`,
+    `ごきげんよう！${nickname}さん！`,
+    `お帰りなさい！${nickname}さま！`,
+];
+helloSentence = helloList[Math.floor( Math.random() * 5 )];
+$('.hello-name').html(helloSentence);
