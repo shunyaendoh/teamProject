@@ -48,7 +48,9 @@ class IdeaController extends Controller
         $idea->updated_at= Carbon::now();
         $idea->save();
 
-        return redirect()->route('idea.index');
+        return redirect()->route('profile.index',[
+            'user_id' => Auth::user()->id
+        ]);
     }
 
     public function edit(Idea $idea)
