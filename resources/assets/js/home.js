@@ -6,7 +6,7 @@ function scrollPaubos(){
 }
 
 // when choosing a user to message
-function openChatBox(user, authUser, profile){
+function openChatBox(user, authUser, profile) {
     $('#messageThread').html('<h1 class="text-center"> Loading. . .');
 
     $('#default_card').hide();

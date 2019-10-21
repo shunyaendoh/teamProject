@@ -7,12 +7,9 @@
             var body = $(this).attr("body");
             var createdAt = $(this).attr("created-at");
             var picturePath = $(this).attr("picture-path");
-            console.log(id);
-            console.log(userId);
-            console.log(jobId);
-            console.log(title);
-            console.log(body);
-            console.log(createdAt);
+            var user = $(this).attr("user");
+            var profile = $(this).attr("profile");
+
             if(jobId == 1) {
                 $(".modal-content").removeClass("bg-secondary");
                 $(".modal-content").removeClass("bg-success");
@@ -148,13 +145,26 @@
             $('.js-like').attr('ideaId',id);
             $('.modal-body').html(`<div><p class="h2">${body}</p><p class="display-5 created-at">${createdAt}</p></div>`);
             $('.modal-title').html(`<div style="display:flex;"><a href="profile/${userId}"><img src="/${picturePath}" class="profile-image"></a><div class="ml-4"><p>${nickname}</p><h2>${title}</h2></<h2></div>`);
-            // $('.button-chat').attr('onclick',`location.href='/chat/${userId}'`);
-            $('.button-chat').attr('onclick',`location.href='/chat/${userId}'`);
-            $('.button-favorite').attr('onclick',`location.href='/favorite/${id}'`);
+            $('.button-chat').attr('onclick', `openChatBox(${user},${id},${profile});`);
+            $('.button-favorite').attr('onclick', `location.href='/favorite/${id}'`);
+            $('.button-chat').on('click', function () { 
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: 'GET',
+                    url: '/checkConvo/'+ userId,
+                    success: function(response){
+                        inputWhoId.value = response;
+                    },
+                    error: function(response){
+                    }
+                });
+                window.location.href = `/chat/${id}`;
+            });
         });
 $(document).on('click', '.js-like', function () {
     var ideaId = $(this).attr('ideaId');
-    console.log(ideaId);
 
     var $clickedBtn = $(this);
 
@@ -171,10 +181,8 @@ function like(ideaId, $clickedBtn) {
         }
     })
         .done(function () {
-            console.log("success");
         })
         .fail(function () {
-            console.log("failed");
         })
         .always(function () {
             changeLikeBtn($clickedBtn);            
@@ -204,10 +212,8 @@ $(document).on('click', '.js-dislike', function () {
         }
     })
         .done(function () {
-            console.log("success");
         })
         .fail(function () {
-            console.log("failed");
         })
         .always(function () {
             changeLikeBtn($clickedBtn);            
@@ -217,3 +223,4 @@ $(document).on('click', '.js-dislike', function () {
 $(document).ready(function() {
     $('.hello-user-text').fadeIn('slow');
 });
+

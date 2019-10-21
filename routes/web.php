@@ -33,7 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');              // 送信先のuser_id
     Route::post('/chat/{user}/{chat}', 'ChatController@create')->name('chat.create');
     Route::delete('/chat/{user}/{chat}', 'ChatController@delete')->name('chat.delete');
-    Route::get('/checkConvo/{receiverId}', 'MessageUserController@check');
+
+    Route::get('/checkConvo/{receiverId}', 'MessageUserController@check')->name('store.messageUser');
 
     Route::post('/sendMessage', 'MessageController@store')->name('sendMessage');
 

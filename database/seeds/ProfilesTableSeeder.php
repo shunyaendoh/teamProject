@@ -17,7 +17,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 1,
             'nickname' => 'ふみ',
-            'birth_of_date' => '19981126',
+            'birth_of_date' => '19981124',
             'job' => 'Pusher Master',
             'locate' => '千葉',
             'comment' => 'Java少し齧ってました！',
@@ -41,7 +41,7 @@ class ProfilesTableSeeder extends Seeder
         DB::table('profiles')->insert([
             'user_id' => 3,
             'nickname' => 'まほ',
-            'birth_of_date' => '19991024',
+            'birth_of_date' => '19890601',
             'job' => 'Bootstrap使い',
             'locate' => '千葉',
             'comment' => '円周率いっぱい言えます！',

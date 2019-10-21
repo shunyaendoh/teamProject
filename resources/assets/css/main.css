@@ -64,14 +64,8 @@
 header {
     z-index: 100;
 }
-.profile-img {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    object-fit: cover;
-}
 
-.nav-link :hover {
+.profile-img {
+  height: 4rem;
+  width: auto;
 }
