@@ -19,5 +19,7 @@
     "/js/profile.js": "/js/profile.js",
     "/css/profile.css": "/css/profile.css",
     "/js/home.js": "/js/home.js",
-    "/css/home.css": "/css/home.css"
+    "/css/home.css": "/css/home.css",
+    "/css/idea_create_edit.css": "/css/idea_create_edit.css",
+    "/css/profile_create_edit.css": "/css/profile_create_edit.css"
 }
