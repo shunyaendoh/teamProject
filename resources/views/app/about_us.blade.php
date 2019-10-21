@@ -8,16 +8,16 @@
         <div class="border mb-3">
           <div class="p-3 mb-2 text-dark text-center">
             <p>
-              アイデア村/Ideathonは「起業したいけどビジネスパートナーがいない！」といった悩みを解決するサービスです。
+              アイデア村/Ideathonは「起業したいけどビジネスパートナーがいない！」<br>といった悩みを解決するサービスです。
             </p>
             <p>
               私たちは "アイデアを通して人と人をつなげる"をモットーに掲げています。
             </p>
             <p>
-              もしあなたが私たちにコメントを残したいなら、下記のコンタクトフォームを利用してください。
+              もしあなたが私たちにコメントを残したいなら、<br>下記のコンタクトフォームを利用してください。
             </p>
             <p>
-              また、あなたがデベロッパーであるなら<a href="https://github.com/shunyaendoh/teamProject">こちら</a>からGitHubのレポジトリにアクセスできます。
+              また、あなたがデベロッパーであるなら<br><a href="https://github.com/shunyaendoh/teamProject">こちら</a>からGitHubのレポジトリにアクセスできます。
             </p>
             </div>
         </div>

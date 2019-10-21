@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500&display=swap" rel="stylesheet">
 
     {{-- Scripts --}}
-    <script src="/js/app.js" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

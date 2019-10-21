@@ -28,13 +28,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/idea/edit/{idea}', 'IdeaController@edit')->name('idea.edit');
     Route::put('/idea/update/{idea}', 'IdeaController@update')->name('idea.update');
 
+    // チャットページ
+    Route::get('/chat/{user}', 'ChatController@index')->name('chat.index');              // チャット一覧( 自分のuer_id )
+    Route::get('/chat/{user}/{chat}', 'ChatController@show')->name('chat.show');              // 送信先のuser_id
+    Route::post('/chat/{user}/{chat}', 'ChatController@create')->name('chat.create');
+    Route::delete('/chat/{user}/{chat}', 'ChatController@delete')->name('chat.delete');
+    Route::get('/checkConvo/{receiverId}', 'MessageUserController@check');
+
+    Route::post('/sendMessage', 'MessageController@store')->name('sendMessage');
+
+    Route::get('/loadMessage/{receiver}/{sender}', 'MessageController@load');
+
+    Route::get('/retrieveMessages/{receiver}/{sender}/{lastMsgId}','MessageController@retrieveNew');
+
     // ABOUT USページ
     Route::get('/about_us', function () {
         return view('app.about_us');
     })->name('about_us');
-
-    Route::post('/thankyou', 'ContactController@complete')->name('contact.complete');
-
 
 });
 
@@ -43,18 +53,3 @@ Auth::routes();
 // テスト用
 
 Route::view('/main', 'app.profile_edit');
-
-//Logged In User    
-Route::group(['middleware' => 'auth'],function(){
-
-    Route::get('/checkConvo/{recieverId}', 'Message_UsersController@check');
-    Route::post('/sendMessage', 'MessagesController@store')->name('sendMessage');
-
-    Route::get('/loadMessage/{reciever}/{sender}', 'MessagesController@load');
-
-    Route::get('/retrieveMessages/{reciever}/{sender}/{lastMsgId}','MessagesController@retrieveNew');
-
-});
-
-Route::get('/chat', 'ChatController@index')->name('chat.index');
-
