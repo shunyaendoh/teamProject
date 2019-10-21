@@ -7,12 +7,8 @@ $('.idea2').on('click', function () {
   var body = $(this).attr("body");
   var createdAt = $(this).attr("created-at");
   var picturePath = $(this).attr("picture-path");
-  console.log(id);
-  console.log(userId);
-  console.log(jobId);
-  console.log(title);
-  console.log(body);
-  console.log(createdAt);
+  var user = $(this).attr("user");
+  var profile = $(this).attr("profile");
   if(jobId == 1) {
       $(".modalBackfav").removeClass("bg-secondary");
       $(".modalBackfav").removeClass("bg-success");
@@ -148,7 +144,22 @@ $('.idea2').on('click', function () {
   $('.js-dislike').attr('ideaId',id);
   $('.modal-body').html(`<div><p class="h2">${body}</p><p class="display-5 created-at">${createdAt}</p></div>`);
   $('.modal-title').html(`<div style="display:flex;"><a href="/profile/${userId}"><img src="/${picturePath}" class="profile-image"></a><div class="ml-4"><p>${nickname}</p><h2>${title}</h2></<h2></div>`);
-  $('.button-chat').attr('onclick',`location.href='/chat/${userId}/1'`);
+  $('.button-chat').attr('onclick', `openChatBox(${user},${id},${profile});`);
+  $('.button-chat').on('click', function () { 
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          method: 'GET',
+          url: '/checkConvo/'+ userId,
+          success: function(response){
+              inputWhoId.value = response;
+          },
+          error: function(response){
+          }
+      });
+      window.location.href = `/chat/${id}`;
+  });
 });
 $(document).on('click', '.js-like', function () {
 var ideaId = $(this).attr('ideaId');

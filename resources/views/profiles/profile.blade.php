@@ -98,7 +98,8 @@
                                                     user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}"
                                                     title="{{ $idea->title }}" body="{{ $idea->body }}"
                                                     created-at="{{ $idea->created_at }}"
-                                                    picture-path="{{ $idea->user->profile->picture_path }}">
+                                                    picture-path="{{ $idea->user->profile->picture_path }}"
+                                                    user="{{ $idea->user }}"" profile="{{ $idea->user->profile }}">
                                                     <div style="position:relative">
                                                         <p
                                                             style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">
@@ -127,8 +128,8 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             id="button-edit">編集する</button>
                                                         @else
-                                                        <button type="button" class="btn btn-secondary"
-                                                            id="button-chat2">チャットする</button>
+                                                        <a class="btn btn-secondary button-chat" href="javascript:;"">チャットする</a>
+
                                                         @endif
                                                     </div>
                                                 </div>
@@ -165,7 +166,8 @@
                                                     user-id="{{ $idea->user_id }}" job-id="{{ $idea->job_id }}"
                                                     title="{{ $idea->title }}" body="{{ $idea->body }}"
                                                     created-at="{{ $idea->created_at }}"
-                                                    picture-path="{{ $idea->user->profile->picture_path }}">
+                                                    picture-path="{{ $idea->user->profile->picture_path }}"
+                                                    user="{{ $idea->user }}"" profile="{{ $idea->user->profile }}">
                                                     <div style="position:relative">
                                                         <p
                                                             style="position:absolute; top:50%; left:50%; transform : translate(-50%, -50%);">
@@ -191,8 +193,7 @@
                                                         ...
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary button-chat"
-                                                            id="button-chat">チャットする</button>
+                                                        <a class="btn btn-secondary button-chat" id="button-chat" href="javascript:;"">チャットする</a>
                                                         <div class=" mt-3 ml-3">
                                                             @if (Auth::check() && $idea->favorites->contains(function
                                                             ($user) {
