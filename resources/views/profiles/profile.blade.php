@@ -128,7 +128,7 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             id="button-edit">編集する</button>
                                                         @else
-                                                        <a class="btn btn-secondary button-chat" href="javascript:;"">チャットする</a>
+                                                        <a class="btn btn-secondary button-chat" href="javascript:;" id="button-chat2">チャットする</a>
 
                                                         @endif
                                                     </div>
