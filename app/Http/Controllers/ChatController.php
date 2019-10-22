@@ -10,7 +10,7 @@ class ChatController extends Controller
     public function index()
     {
         $chat_users = collect();
-        $sender_is_me = MessageUser::where('sender_id',Auth::user()->id)->get();
+        $sender_is_me = MessageUser::where('sender_id',Auth::user()->id)->orderBy('updated_at', 'desc')->get();
         foreach($sender_is_me as $messageUser) {
             $messageUser->user = $messageUser->receiver_id;
             $chat_users->push($messageUser);
@@ -22,7 +22,7 @@ class ChatController extends Controller
             $tmp_user = User::where('id', $chat_user->user)->first();
             $user_lists->push($tmp_user);
         }
-        
+        // dd($user_lists);
         return view('chats.index', [
             'users' => $user_lists
         ]);
