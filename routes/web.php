@@ -54,5 +54,5 @@ Auth::routes();
 
 // テスト用
 
-Route::view('/main', 'app.profile_edit');
+// Route::view('/main', 'app.profile_edit');
 
