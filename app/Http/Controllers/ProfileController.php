@@ -15,7 +15,6 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {   
-        dd($user);
         $user->load('ideas', 'profile', 'favorites');
         $user->favorites->load('favorites');
         $bod = $this->calcAge(intval($user->profile->birth_of_date));
