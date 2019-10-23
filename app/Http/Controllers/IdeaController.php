@@ -39,7 +39,7 @@ class IdeaController extends Controller
     public function store(CreateIdea $request)
     {
         $idea = new Idea();
-       
+
         $idea->user_id = Auth::user()->id;
         $idea->job_id = $request->job_id;
         $idea->title = $request->title;
@@ -56,7 +56,7 @@ class IdeaController extends Controller
     public function edit(Idea $idea)
     {
        $jobs = Job::all();
-       
+
        if (Auth::user()->id !== $idea->user_id) {
             abort(403);
        }
