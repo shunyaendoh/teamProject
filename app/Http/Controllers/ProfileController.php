@@ -108,10 +108,9 @@ class ProfileController extends Controller
     }
 
     private function saveProfilePicture($image)
-    {
+    {   
         if (\App::environment('heroku')) {
             $imgPath = Storage::disk('s3')->putFile('images/profilePicture', $image, 'public');
-
             return Storage::disk('s3')->url($imgPath);
         }
 ​
