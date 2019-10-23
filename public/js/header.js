@@ -1,1 +1,3 @@
-$("#menu").on("click",function(){$(this).toggleClass("show")});
+$('#menu').on('click', function() {
+    $(this).toggleClass('show');
+});

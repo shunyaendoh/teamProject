@@ -30,7 +30,8 @@ class MessageUserController extends Controller
             $updateConvo2 = MessageUser::where('sender_id', $receiverId)->where('receiver_id', $senderId)->first();
             $updateConvo->touch();
             $updateConvo2->touch();
-            return $checkExist->id;
+            return $updateConvo->id;
+            // return $checkExist->id;
         }
     }
 }

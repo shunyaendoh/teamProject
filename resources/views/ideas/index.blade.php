@@ -35,7 +35,7 @@
                             ...
                             </div>
                             <div class="modal-footer">
-                                <a class="btn btn-secondary button-chat" id="button-chat" href="javascript:;"">チャットする</a>
+                                <a class="btn btn-secondary button-chat" href="javascript:;"">チャットする</a>
                                 <div class=" mt-3 ml-3">
                                         @if (Auth::check() && $idea->favorites->contains(function ($user) {
                                             return $user->id === Auth::user()->id;
