@@ -15,18 +15,13 @@ class IdeaController extends Controller
     {
         $user = Auth::user();
         $user->load('ideas', 'favorites');
-        $ideas = Idea::where('user_id', '!=', Auth::user()->id )
-            ->with('user.profile', 'favorites')
-            ->inRandomOrder()
-            ->limit(30)
-            ->get();
-        
+        $ideas = Idea::where('user_id', '!=', Auth::user()->id )->with('user.profile', 'favorites')->inRandomOrder()->limit(30)->get();
         return view('ideas.index', [
             'ideas' => $ideas,
             'user' => $user
         ]);
     }
-    
+
     public function create()
     {
         $jobs = Job::all();
