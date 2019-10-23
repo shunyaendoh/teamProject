@@ -146,14 +146,16 @@
             $('.modal-body').html("<div><p class='h2'>"+body+"</p><p class='display-5 created-at'>"+createdAt+"</p></div>");
             $('.modal-title').html("<div style='display:flex;'><a href='profile/"+userId+"'><img src='/"+picturePath+"' class='profile-image'></a><div class='ml-4'><p>"+nickname+"</p><h2>"+title+"</h2></<h2></div>");
             $('.button-favorite').attr('onclick', "location.href='/favorite/"+id+"'");
-            $('.button-chat').attr('onclick', "openChatBox("+user+","+id+","+profile+");");
-            $("#button-chat-"+userId).on('click', function () { 
-                $.ajax({
+            $('.button-chat').attr('onclick', "addUser("+user+","+id+","+profile+");");
+        });
+
+        function addUser(user,id,profile) { 
+            $.ajax({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     method: 'GET',
-                    url: '/checkConvo/'+ userId,
+                    url: '/checkConvo/'+ user.id,
                     success: function(response){
                         inputWhoId.value = response;
                         console.log('add user');
@@ -165,8 +167,8 @@
                     }
                 });
                 window.location.href = "/chat/"+id;
-            });
-        });
+            }
+
 $(document).on('click', '.js-like', function () {
     var ideaId = $(this).attr('ideaId');
 

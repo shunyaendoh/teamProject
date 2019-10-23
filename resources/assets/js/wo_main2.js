@@ -145,22 +145,27 @@ $('.idea2').on('click', function () {
   $('.modal-body').html("<div><p class='h2'>"+body+"</p><p class='display-5 created-at'>"+createdAt+"</p></div>");
   $('.modal-title').html("<div style='display:flex;'><a href='/profile/"+userId+"'><img src='/"+picturePath+"' class='profile-image'></a><div class='ml-4'><p>"+nickname+"</p><h2>"+title+"</h2></<h2></div>");
   $('.button-chat').attr('onclick', "openChatBox("+user+","+id+","+profile+");");
-  $('.button-chat').on('click', function () { 
-      $.ajax({
+});
+function addUser(user,id,profile) { 
+  $.ajax({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           method: 'GET',
-          url: '/checkConvo/'+ userId,
+          url: '/checkConvo/'+ user.id,
           success: function(response){
               inputWhoId.value = response;
+              console.log('add user');
           },
           error: function(response){
+          },
+          always: function() {
+              console.log('done');
           }
       });
       window.location.href = "/chat/"+id;
-  });
-});
+  }
+
 $(document).on('click', '.js-like', function () {
 var ideaId = $(this).attr('ideaId');
 console.log(ideaId);

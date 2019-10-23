@@ -144,19 +144,24 @@ $('.idea').on('click', function() {
   $('.modal-title').html("<div style='display:flex;'><a href='/profile/"+userId+"'><img src='/"+picturePath+"' class='profile-image'></a><div class='ml-4'><p>"+nickname+"</p><h2>"+title+"</h2></<h2></div>");
   $('#button-edit').attr('onclick',"location.href='/idea/edit/"+id+"/'");
   $('.button-chat').attr('onclick', "openChatBox("+user+","+id+","+profile+");");
-  $('.button-chat').on('click', function () { 
-      $.ajax({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          method: 'GET',
-          url: '/checkConvo/'+ userId,
-          success: function(response){
-              inputWhoId.value = response;
-          },
-          error: function(response){
-          }
-      });
-      window.location.href = "/chat/"+id;
-  });
 });
+
+function addUser(user,id,profile) { 
+    $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: 'GET',
+            url: '/checkConvo/'+ user.id,
+            success: function(response){
+                inputWhoId.value = response;
+                console.log('add user');
+            },
+            error: function(response){
+            },
+            always: function() {
+                console.log('done');
+            }
+        });
+        window.location.href = "/chat/"+id;
+    }

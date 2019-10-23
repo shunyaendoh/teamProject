@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/css/photopile.css">
     {{-- index.cssの呼び出し --}}
     <link rel="stylesheet" href="/css/index.css">
-    <script src="{{ asset('js/home.js') }}"></script>
 
     @extends('layouts.app')
     @section('content')
