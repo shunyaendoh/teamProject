@@ -112,11 +112,9 @@ class ProfileController extends Controller
         if (\App::environment('heroku')) {
             $imgPath = Storage::disk('s3')->putFile('images/profilePicture', $image, 'public');
             return Storage::disk('s3')->url($imgPath);
-        } else {
-            ​
-        $imgPath = $image->store('images/profilePicture', 'public');
-
-        return 'storage/' . $imgPath;
         }
+         ​
+        $imgPath = $image->store('images/profilePicture', 'public');
+        return 'storage/' . $imgPath;
     }
 }
