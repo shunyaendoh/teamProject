@@ -76,9 +76,9 @@
         </div>
 
         <div class="row form-group m-4">
-            <label for="locate">{{ __('出身地：') }}</label>
+            <label for="locate">{{ __('居住地：') }}</label>
             <input class="form-control" type="text" name="locate" value="{{old('locate', $user->profile->locate)}}"
-                placeholder="出身地を書いて下さい。">
+                placeholder="居住地を書いて下さい。">
         </div>
 
         <div class="row form-group m-4">
@@ -94,7 +94,7 @@
         </div>
 
 
-        <label for="picture" class="mx-4 col-form-label text-md-right">{{ __('プロフィール画像：') }}</label>
+        <label for="picture" class="mx-4 col-form-label text-md-right">{{ __('プロフィール画像変更：') }}</label>
         <div class="form-group mx-4">
             <input id="picture" type="file" name="picture"
                 class="form-control{{ $errors->has('picture_path') ? ' is-invalid' : '' }}">

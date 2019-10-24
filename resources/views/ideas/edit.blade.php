@@ -23,12 +23,12 @@
  
     
     <div class="row form-group m-4">
-        <label class="py-2" for="title">{{ __('タイトル') }}</label>
+        <label class="py-2" for="title">{{ __('タイトル：') }}</label>
         <input class="form-control" id="title" type="title" name="title" placeholder="アイデアのタイトルを入力して下さい。" value="{{old('title', $idea->title)}}">
     </div>
 
     <div class=" m-4">
-        <label class="py-2" for="job_id">{{ __('対象の職業') }}</label>
+        <label class="py-2" for="job_id">{{ __('対象の職業：') }}</label>
         <div>
             <select class="form-control " name="job_id" id="job_id" class="form-control{{ $errors->has('job_id') ? ' is-invalid' : '' }}" form="post_idea" required>
             <option value="{{old('job', $idea->job_id)}}">{{'--未選択--'}}</option>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="row form-group m-4">
-        <label class="py-2" for="body">{{ __('アイデア') }}</label>
+        <label class="py-2" for="body">{{ __('アイデア：') }}</label>
         <textarea class="body p-3" id="body" name="body" placeholder="アイデアについて詳しく書いて下さい。">{{old('body', $idea->body)}}</textarea>
     </div>
 
